@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "Conditions de location" };
 
 export default function Page() {
   return (
-    <LegalPage title="Conditions de location" intro="Projet de trame à adapter aux modalités commerciales réelles de DDAY EVENT.">
+    <LegalPage title="Conditions de location" intro="Projet de trame à adapter aux modalités commerciales réelles de MY DDAY EVENT.">
       <h2>1. Demande et confirmation</h2>
       <p>[Définir la procédure de demande, la confirmation des disponibilités et le moment où la location devient ferme.]</p>
       <h2>2. Prix et règlement</h2>

@@ -1,8 +1,8 @@
-# RAPPORT FINAL — DDAY EVENT
+# RAPPORT FINAL — MY DDAY EVENT
 
 ## A. Résumé exécutif
 
-Le projet indépendant DDAY EVENT est implémenté et compile en production. Le site public, le catalogue, le parcours de demande de devis, les API serveur, le schéma Supabase et l’espace propriétaire sont présents. Les contrôles statiques, TypeScript, la compilation et les tests HTTP locaux effectués sur le build de production ont réussi.
+Le projet indépendant MY DDAY EVENT est implémenté et compile en production. Le site public, le catalogue, le parcours de demande de devis, les API serveur, le schéma Supabase et l’espace propriétaire sont présents. Les contrôles statiques, TypeScript, la compilation et les tests HTTP locaux effectués sur le build de production ont réussi.
 
 **Mise à jour Mission 4 :** le catalogue compte désormais 133 références, 11 catégories et 32 variantes. Le trio de panneaux Luxe a été réintégré à la demande de la propriétaire. Voir [RAPPORT_MISSION_4_DDAY_EVENT.md](./RAPPORT_MISSION_4_DDAY_EVENT.md) pour le relevé de réconciliation le plus récent.
 
@@ -43,7 +43,7 @@ Le schéma inclut `requests`, `request_items`, `products`, `owner_users`, `catal
 | Responsive | Styles adaptatifs implémentés | Vérification navigateur antérieure à 390 px | Aucun débordement horizontal constaté sur cette largeur ; autres appareils réels non testés |
 | Administration des images et contenus | Édition de chemins/URL d’image et de certains contenus | Vérification du code, sans compte live | Pas de téléversement binaire d’image dans l’admin ; textes modifiables limités à des champs de la page d’accueil |
 
-La page affiche clairement : « La disponibilité du matériel est confirmée par DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique. »
+La page affiche clairement : « La disponibilité du matériel est confirmée par MY DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique. »
 
 ## D. Catalogue
 

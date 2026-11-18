@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <LegalPage title="Mentions légales" intro="Informations relatives à l’éditeur et à l’hébergement du site.">
       <h2>Éditeur du site</h2>
-      <p><strong>Dénomination :</strong> DDAY EVENT — [forme juridique à confirmer]</p>
+      <p><strong>Dénomination :</strong> MY DDAY EVENT — [forme juridique à confirmer]</p>
       <p><strong>Numéro SIRET :</strong> [à compléter]</p>
       <p><strong>Adresse :</strong> [adresse postale à compléter]</p>
       <p><strong>Téléphone et e-mail :</strong> [coordonnées professionnelles à compléter]</p>

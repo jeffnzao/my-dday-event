@@ -35,7 +35,7 @@ export function OwnerLogin({ configured }: { configured: boolean }) {
   return (
     <section className="owner-placeholder owner-login">
       <div className="owner-icon"><LockKeyhole size={23} aria-hidden="true" /></div>
-      <span className="eyebrow">DDAY EVENT · Gestion sécurisée</span>
+      <span className="eyebrow">MY DDAY EVENT · Gestion sécurisée</span>
       <h1>Connexion propriétaire</h1>
       {!configured && <p className="quote-error" role="status">Supabase n’est pas encore configuré. Aucune connexion ni demande n’est simulée.</p>}
       <form className="owner-login-form" onSubmit={submit}>

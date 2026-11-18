@@ -1,4 +1,4 @@
-# Configuration et déploiement DDAY EVENT
+# Configuration et déploiement MY DDAY EVENT
 
 ## Services et coûts
 

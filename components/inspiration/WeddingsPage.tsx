@@ -11,7 +11,7 @@ export function WeddingsPage() {
           <span className="eyebrow">Nos mariages</span>
           <h1>Dix histoires d’amour.<br /><em>Mille façons de célébrer.</em></h1>
           <p>Une grande tablée au jardin, un château baigné de lumière, une fête les pieds dans le sable… Chaque couple imagine sa journée à sa façon. Entrez dans ces univers et découvrez les détails qui donnent une âme à la fête.</p>
-          <p className="editorial-note">Univers visuels d’inspiration — aucune galerie ne représente un mariage réalisé par DDAY EVENT.</p>
+          <p className="editorial-note">Univers visuels d’inspiration — aucune galerie ne représente un mariage réalisé par MY DDAY EVENT.</p>
         </div>
         <Photo className="wedding-hero-image" image={inspirations[0].image} priority sizes="(max-width: 760px) 100vw, 52vw" />
       </section>

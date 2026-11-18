@@ -81,12 +81,12 @@ export function HomePage() {
             <Sparkles aria-hidden="true" size={17} />
             <span>Une fête qui vous ressemble</span>
           </div>
-          <span className="hero-side-caption">DDAY EVENT · DÉCORATION & LOCATION</span>
+          <span className="hero-side-caption">MY DDAY EVENT · DÉCORATION & LOCATION</span>
         </div>
         <div className="hero-index"><span>01</span><span className="index-line" /><span>04</span></div>
       </section>
 
-      <div className="promise-strip" aria-label="Les plus de DDAY EVENT">
+      <div className="promise-strip" aria-label="Les plus de MY DDAY EVENT">
         <span><Flower2 size={17} aria-hidden="true" /> {products.length} références au catalogue</span>
         <span><Sparkles size={16} aria-hidden="true" /> Quantités au choix</span>
         <span><Heart size={16} aria-hidden="true" /> Avec ou sans installation</span>

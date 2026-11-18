@@ -4,8 +4,8 @@ import { SiteShell } from "@/components/layout/SiteShell";
 
 export const metadata: Metadata = {
   title: {
-    default: "DDAY EVENT — Location de décoration de mariage",
-    template: "%s — DDAY EVENT",
+    default: "MY DDAY EVENT — Location de décoration de mariage",
+    template: "%s — MY DDAY EVENT",
   },
   description: "Décoration et location pour un mariage qui vous ressemble.",
 };

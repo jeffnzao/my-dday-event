@@ -96,7 +96,7 @@ export function CatalogBrowser() {
       )}
       <p className="catalog-temporary-note">
         Les illustrations sont des emplacements temporaires, pas des photos de l’inventaire réel.
-        Les tarifs et disponibilités restent à confirmer avec DDAY EVENT.
+        Les tarifs et disponibilités restent à confirmer avec MY DDAY EVENT.
       </p>
     </section>
   );

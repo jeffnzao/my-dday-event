@@ -11,8 +11,8 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="wordmark" href="/" aria-label="DDAY EVENT — accueil" onClick={() => setMenuOpen(false)}>
-          DDAY EVENT
+        <Link className="wordmark" href="/" aria-label="MY DDAY EVENT — accueil" onClick={() => setMenuOpen(false)}>
+          MY DDAY EVENT
         </Link>
         <nav className="desktop-nav" aria-label="Navigation principale">
           {navigation.map((item) => (

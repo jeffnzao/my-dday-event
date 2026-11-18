@@ -148,15 +148,15 @@ export function QuotePage() {
         <p>Référence de demande : <strong>{submission.requestId}</strong></p>
         <p>
           {submission.emailNotification === "sent"
-            ? "Une confirmation a été adressée à votre e-mail et une notification transmise à DDAY EVENT. Nous reviendrons vers vous après étude."
+            ? "Une confirmation a été adressée à votre e-mail et une notification transmise à MY DDAY EVENT. Nous reviendrons vers vous après étude."
             : submission.emailNotification === "not_configured"
               ? "Votre demande est enregistrée. La notification e-mail de la propriétaire n’est pas encore configurée."
               : submission.emailNotification === "partial"
-                ? "Votre demande est enregistrée. Une seule des notifications e-mail a été délivrée ; DDAY EVENT devra vérifier l’espace propriétaire."
-                : "Votre demande est enregistrée. Les notifications e-mail n’ont pas pu être envoyées ; DDAY EVENT devra consulter l’espace propriétaire."}
+                ? "Votre demande est enregistrée. Une seule des notifications e-mail a été délivrée ; MY DDAY EVENT devra vérifier l’espace propriétaire."
+                : "Votre demande est enregistrée. Les notifications e-mail n’ont pas pu être envoyées ; MY DDAY EVENT devra consulter l’espace propriétaire."}
         </p>
         <p className="quote-availability-notice">
-          La disponibilité du matériel est confirmée par DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.
+          La disponibilité du matériel est confirmée par MY DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.
         </p>
         <Link className="button button-dark" href="/">Retour à l’accueil <ArrowRight size={15} aria-hidden="true" /></Link>
       </section>
@@ -191,7 +191,7 @@ export function QuotePage() {
                   <span className="eyebrow">{catalogCategories.length} univers à découvrir</span>
                   <h2 id="quote-catalog-title">La collection</h2>
                 </div>
-                <p>Ajoutez vos idées à la sélection. Les tarifs et disponibilités seront confirmés avec DDAY EVENT.</p>
+                <p>Ajoutez vos idées à la sélection. Les tarifs et disponibilités seront confirmés avec MY DDAY EVENT.</p>
               </div>
               <label className="quote-date-field">
                 Date de l’événement
@@ -328,7 +328,7 @@ export function QuotePage() {
                 : "À confirmer"
               : formattedPrice(total)}</strong></p>
             <p className="quote-availability-notice">
-              La disponibilité du matériel est confirmée par DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.
+              La disponibilité du matériel est confirmée par MY DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.
             </p>
             <label className="quote-consent"><input required type="checkbox" /> J’accepte que mes informations soient utilisées pour répondre à cette demande de devis. <Link href="/confidentialite">Politique de confidentialité</Link></label>
           </section>

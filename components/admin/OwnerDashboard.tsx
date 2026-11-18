@@ -312,7 +312,7 @@ export function OwnerDashboard() {
   return (
     <section className="admin-page">
       <header className="admin-heading">
-        <div><span className="eyebrow">DDAY EVENT · Administration</span><h1>Espace propriétaire</h1></div>
+        <div><span className="eyebrow">MY DDAY EVENT · Administration</span><h1>Espace propriétaire</h1></div>
         <div className="admin-actions">
           <button className="button" disabled={loading || saving} onClick={() => void reload()} type="button"><RefreshCw size={15} aria-hidden="true" /> Actualiser</button>
           <button className="button" onClick={() => void logout()} type="button"><LogOut size={15} aria-hidden="true" /> Déconnexion</button>

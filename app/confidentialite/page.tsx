@@ -17,7 +17,7 @@ export default function Page() {
       <p>[Préciser les outils, l’hébergeur, les éventuels prestataires et les durées de conservation réellement retenus.]</p>
       <h2>Vos droits</h2>
       <p>Pour exercer vos droits d’accès, de rectification, d’effacement, d’opposition, de limitation ou de portabilité, contactez : [adresse de contact à compléter].</p>
-      <p>La sélection du catalogue peut être conservée dans le stockage local de votre navigateur pour la retrouver lors de votre prochaine visite. Elle n’est pas transmise au serveur ni envoyée à DDAY EVENT par cette maquette. La suppression des données du navigateur efface également cette sélection.</p>
+      <p>La sélection du catalogue peut être conservée dans le stockage local de votre navigateur pour la retrouver lors de votre prochaine visite. Elle n’est pas transmise au serveur ni envoyée à MY DDAY EVENT par cette maquette. La suppression des données du navigateur efface également cette sélection.</p>
     </LegalPage>
   );
 }

@@ -37,7 +37,7 @@ async function notifyEmails(requestId: string, payload: Record<string, unknown>,
 
   const headers = { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" };
   const confirmationNotice =
-    "La disponibilité du matériel est confirmée par DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.";
+    "La disponibilité du matériel est confirmée par MY DDAY EVENT après réception de votre demande. L’envoi d’un devis ne constitue pas une réservation automatique.";
   const send = async (label: string, to: string, subject: string, html: string) => {
     try {
       const response = await fetch("https://api.resend.com/emails", {
@@ -57,14 +57,14 @@ async function notifyEmails(requestId: string, payload: Record<string, unknown>,
     send(
       "Owner notification",
       ownerEmail,
-      `Nouvelle demande de devis DDAY EVENT (${requestId.slice(0, 8)})`,
+      `Nouvelle demande de devis MY DDAY EVENT (${requestId.slice(0, 8)})`,
       `<p>Une demande de devis a été enregistrée.</p><p>Référence : ${escapeHtml(requestId)}</p><p>Client : ${escapeHtml(String(payload.first_name))} ${escapeHtml(String(payload.last_name))}</p><p>Date de l’événement : ${escapeHtml(String(payload.event_date))}</p><p>Nombre de lignes d’articles : ${itemCount}</p><p>Consultez l’espace propriétaire pour les détails.</p>`,
     ),
     send(
       "Customer confirmation",
       String(payload.email),
-      `DDAY EVENT — confirmation de votre demande ${requestId.slice(0, 8)}`,
-      `<p>Bonjour ${escapeHtml(String(payload.first_name))},</p><p>Nous avons bien reçu votre demande de devis. Sa référence est ${escapeHtml(requestId)}.</p><p>${escapeHtml(confirmationNotice)}</p><p>L’envoi de cette confirmation ne vaut pas réservation. DDAY EVENT vous recontactera après étude de votre projet.</p>`,
+      `MY DDAY EVENT — confirmation de votre demande ${requestId.slice(0, 8)}`,
+      `<p>Bonjour ${escapeHtml(String(payload.first_name))},</p><p>Nous avons bien reçu votre demande de devis. Sa référence est ${escapeHtml(requestId)}.</p><p>${escapeHtml(confirmationNotice)}</p><p>L’envoi de cette confirmation ne vaut pas réservation. MY DDAY EVENT vous recontactera après étude de votre projet.</p>`,
     ),
   ]);
   if (ownerSent && customerSent) return "sent" as const;

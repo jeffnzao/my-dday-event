@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-main">
         <div>
-          <Link className="footer-wordmark" href="/">DDAY EVENT</Link>
+          <Link className="footer-wordmark" href="/">MY DDAY EVENT</Link>
           <p>Les détails qui rendent votre journée inoubliable.</p>
         </div>
         <div className="footer-links">
@@ -33,7 +33,7 @@ export function Footer() {
         </Link>
       </div>
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} DDAY EVENT</span>
+        <span>© {new Date().getFullYear()} MY DDAY EVENT</span>
         <span>Location de décoration de mariage & d’événements</span>
         <Link href="/espace-proprietaire">Espace propriétaire</Link>
       </div>

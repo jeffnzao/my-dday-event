@@ -30,7 +30,7 @@ export const homeContent = {
   intro:
     "Les premiers invités arrivent, les regards s’illuminent, et vous découvrez enfin le décor que vous aviez imaginé.",
   description:
-    "Arches fleuries, jolies tables, voilages et coins photo : DDAY EVENT vous propose les pièces à louer pour donner vie à une fête qui vous ressemble.",
+    "Arches fleuries, jolies tables, voilages et coins photo : MY DDAY EVENT vous propose les pièces à louer pour donner vie à une fête qui vous ressemble.",
   introductionTitle: "Vous avez les envies.",
   introductionAccent: "Voici de quoi leur donner vie.",
   introduction: [

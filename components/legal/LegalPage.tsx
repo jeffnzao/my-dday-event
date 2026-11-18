@@ -12,7 +12,7 @@ export function LegalPage({
 }) {
   return (
     <article className="legal-page">
-      <span className="eyebrow">DDAY EVENT · Informations</span>
+      <span className="eyebrow">MY DDAY EVENT · Informations</span>
       <h1>{title}</h1>
       {intro && <p className="legal-intro">{intro}</p>}
       <div className="legal-draft-notice">
