@@ -26,13 +26,14 @@
 
 | Élément | Résultat |
 |---|---|
-| Dépôt existant | `https://github.com/jeffnzao/dday-event.git` |
-| Remote | `origin` pointe vers le dépôt existant |
+| Dépôt existant | `https://github.com/jeffnzao/my-dday-event.git` |
+| Remote | `origin` mis à jour vers l’URL canonique du dépôt déplacé |
 | Branche principale | `main` |
 | État initial | Branche locale à jour de `origin/main` ; seul `.env.example` était modifié localement |
 | Dernier commit vérifié | `2592776 chore: initialisation du projet DDAY EVENT` |
 | Accès distant | Fetch/présence du remote vérifiés ; aucun push effectué |
-| Commit | **À réaliser après revue finale du diff** |
+| Commit effectué | `9dfac10` — `chore: rename brand to MY DDAY EVENT and configure CI` |
+| Push | Réussi normalement vers `main`, sans `--force` |
 | Fichiers secrets exclu ou retirés | `.env*` ignoré sauf `.env.example` ; seules des valeurs fictives restent dans `.env.example` |
 
 Aucun secret réel n’a été ajouté à la configuration. Aucun fichier `.env` n’est suivi. Aucun secret Supabase ou Resend n’est placé dans les workflows GitHub Actions.
