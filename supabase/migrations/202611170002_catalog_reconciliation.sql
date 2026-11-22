@@ -2,6 +2,7 @@ update public.products
 set is_active = false,
     updated_at = now()
 where lower(name) in (
+  'rideau lumineux bleu roi',
   'urne de mariage',
   'colonne cannelée',
   'lanterne de sol',

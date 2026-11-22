@@ -52,14 +52,13 @@ const groups: ProductGroup[] = [
     },
   ]),
   productGroup("salle-ceremonie", [
-    { id: "arche-ronde-doree", name: "Arche ronde dorée", price: 20 },
-    { id: "arche-ronde-blanche", name: "Arche ronde blanche", price: 20 },
-    { id: "arche-carree-blanche", name: "Arche carrée blanche", price: 20 },
-    { id: "arche-carree-doree", name: "Arche carrée dorée", price: 20 },
-    { id: "rideau-blanc-3m", name: "Rideau blanc — 3 m", price: 15, dimensions: ["Longueur : 3 m"] },
-    { id: "rideaux-lumineux-blancs-3m", name: "Rideaux lumineux blancs — 3 m", price: 25, dimensions: ["Longueur : 3 m"] },
+    { id: "arche-ronde-doree", name: "Arche ronde dorée", price: 20, description: "Uniquement l’arche." },
+    { id: "arche-ronde-blanche", name: "Arche ronde blanche", price: 20, description: "Uniquement l’arche." },
+    { id: "arche-carree-blanche", name: "Arche carrée blanche", price: 20, description: "Uniquement l’arche." },
+    { id: "arche-carree-doree", name: "Arche carrée dorée", price: 20, description: "Uniquement l’arche." },
+    { id: "rideau-blanc-3m", name: "Rideau blanc — 3 m", price: 15, dimensions: ["Longueur : 3 m"], description: "Tissu lycra. Uniquement le rideau." },
+    { id: "rideaux-lumineux-blancs-3m", name: "Rideaux lumineux blancs — 3 m", price: 25, dimensions: ["Longueur : 3 m"], description: "Uniquement le rideau lumineux." },
     { id: "rideau-bleu-roi-3m", name: "Rideau bleu roi — 3 m", price: 15, dimensions: ["Longueur : 3 m"], colors: ["Bleu roi"] },
-    { id: "rideaux-lumineux-bleu-roi-3m", name: "Rideaux lumineux bleu roi — 3 m", price: 25, dimensions: ["Longueur : 3 m"], colors: ["Bleu roi"] },
     { id: "rideaux-croises-blancs", name: "Rideaux croisés blancs", price: 30, colors: ["Blanc"] },
     { id: "rideaux-croises-beige", name: "Rideaux croisés beiges", price: 40, colors: ["Beige"] },
     { id: "structure-rideau", name: "Structure de rideau", price: 20 },
@@ -72,11 +71,12 @@ const groups: ProductGroup[] = [
     { id: "arche-ronde-beauty-ouverte", name: "Arche ronde Beauty ouverte", price: 40 },
     { id: "arche-elegante", name: "Arche élégante", price: 50 },
     { id: "arche-ovale-blanche-2m", name: "Arche ovale blanche — 2 m", price: 10, dimensions: ["Hauteur : 2 m"], colors: ["Blanc"] },
+    { id: "arche-hexagone-bois", name: "Arche hexagonale en bois", price: 40, description: "Uniquement l’arche." },
     { id: "socle-transparent", name: "Socle transparent", price: 14, colors: ["Transparent"] },
   ]),
   productGroup("allee-centrale", [
     { id: "tapis-ceremonie-blanc-30m", name: "Tapis de cérémonie blanc — 30 m", price: 90, dimensions: ["Longueur : 30 m"], colors: ["Blanc"] },
-    { id: "tapis-ceremonie-rouge-30m", name: "Tapis de cérémonie rouge — 30 m", price: 90, dimensions: ["Longueur : 30 m"], colors: ["Rouge"] },
+    { id: "tapis-ceremonie-rouge-30m", name: "Tapis de cérémonie rouge — 30 m", price: 80, dimensions: ["Longueur : 30 m"], colors: ["Rouge"] },
     { id: "arche-fleurie-entree-260", name: "Arche fleurie d’entrée — 2,60 m", price: 200, dimensions: ["Hauteur : 2,60 m"], featured: true },
     { id: "boule-fleurs-colonne-doree", name: "Boule de fleurs pour allée et colonne dorée", price: 15, colors: ["Doré"] },
     { id: "boule-fleurs-colonne-transparente", name: "Boule de fleurs pour allée et colonne transparente", price: 18, colors: ["Transparent"] },
@@ -90,15 +90,18 @@ const groups: ProductGroup[] = [
   ]),
   productGroup("tables", [
     { id: "nappe-ronde-blanche-280", name: "Nappe ronde blanche — 280 cm", price: 9, dimensions: ["Diamètre : 280 cm"], colors: ["Blanc"] },
-    { id: "nappe-rectangulaire-400", name: "Nappe rectangulaire — 400 cm", price: 9, dimensions: ["Longueur : 400 cm"] },
-    { id: "chemin-mousseline-rose-clair", name: "Chemin de table en mousseline — rose clair", price: 5, colors: ["Rose clair"] },
-    { id: "chemin-mousseline-vert-sauge", name: "Chemin de table en mousseline — vert sauge", price: 5, colors: ["Vert sauge"] },
-    { id: "chemin-mousseline-bleu-roi", name: "Chemin de table en mousseline — bleu roi", price: 5, colors: ["Bleu roi"] },
+    { id: "nappe-rectangulaire-400", name: "Nappe de table rectangulaire blanche — 400 cm", price: 9, dimensions: ["Longueur : 400 cm"], colors: ["Blanc"] },
+    { id: "nappe-ronde-elegante-marie", name: "Nappe de table ronde élégante pour table marié", price: 15, colors: ["Blanc"] },
+    { id: "nappe-rectangulaire-elegante-marie", name: "Nappe de table rectangulaire élégante pour table marié", price: 18, colors: ["Blanc"] },
+    { id: "chemin-mousseline-rose-peche", name: "Chemin de table en mousseline — rose pêche", price: 6, colors: ["Rose pêche"] },
+    { id: "chemin-mousseline-vert-sauge", name: "Chemin de table en mousseline — vert sauge", price: 6, colors: ["Vert sauge"] },
+    { id: "chemin-mousseline-bleu-roi", name: "Chemin de table en mousseline — bleu roi", price: 6, colors: ["Bleu roi"] },
     { id: "chemin-satin-dore", name: "Chemin de table en satin doré", price: 3, colors: ["Doré"] },
-    { id: "chemin-gaze-coton", name: "Chemin de table en gaze de coton", price: 2 },
+    { id: "chemin-satin-rouge", name: "Chemin de table en satin rouge", price: 3, colors: ["Rouge"] },
+    { id: "chemin-gaze-coton", name: "Chemin de table en gaze de coton", price: 4, description: "Couleur au choix.", colors: ["Couleur au choix"] },
     { id: "serviette-tissu-blanche", name: "Serviette en tissu blanche", price: 0.5, colors: ["Blanc"] },
     { id: "serviette-tissu-vert-sauge", name: "Serviette en tissu vert sauge", price: 0.5, colors: ["Vert sauge"] },
-    { id: "rond-serviette-dore", name: "Rond de serviette doré", price: 0.2, colors: ["Doré"] },
+    { id: "rond-serviette-dore", name: "Rond de serviette doré", price: 0.3, colors: ["Doré"] },
     { id: "centre-table-bas-dore", name: "Centre de table bas doré", price: 4, colors: ["Doré"] },
     { id: "centre-table-bas-blanc", name: "Centre de table bas blanc", price: 4, colors: ["Blanc"] },
     { id: "centre-table-haut-transparent-60", name: "Centre de table haut transparent — 60 cm", price: 10, dimensions: ["Hauteur : 60 cm"], colors: ["Transparent"] },
@@ -106,11 +109,12 @@ const groups: ProductGroup[] = [
     { id: "vase-trompette-50", name: "Vase trompette — 50 cm", price: 8, dimensions: ["Hauteur : 50 cm"] },
     { id: "chandelier-transparent-86", name: "Chandelier transparent — 86 cm", price: 15, dimensions: ["Hauteur : 86 cm"], colors: ["Transparent"] },
     { id: "chandelier-dore-50", name: "Chandelier doré — 50 cm", price: 10, dimensions: ["Hauteur : 50 cm"], colors: ["Doré"] },
-    { id: "bougeoir-transparent-tailles", name: "Bougeoir transparent — plusieurs tailles", price: 1.5, description: "Le document source indique plusieurs tailles, sans les détailler.", colors: ["Transparent"] },
-    { id: "bougeoir-dore-tailles", name: "Bougeoir doré — plusieurs tailles", price: 1.2, description: "Le document source indique plusieurs tailles, sans les détailler.", colors: ["Doré"] },
-    { id: "vase-cylindrique-verre-tailles", name: "Vase cylindrique en verre — plusieurs tailles", price: 2, description: "Le document source indique plusieurs tailles, sans les détailler.", colors: ["Verre transparent"] },
+    { id: "bougeoir-transparent-tailles", name: "3 bougeoirs transparents — plusieurs tailles", price: 4.5, description: "Lot de 3 bougeoirs transparents. Plusieurs tailles.", colors: ["Transparent"], packContents: ["3 bougeoirs transparents"] },
+    { id: "bougeoir-dore-tailles", name: "3 bougeoirs dorés — plusieurs tailles", price: 3.6, description: "Lot de 3 bougeoirs dorés. Plusieurs tailles.", colors: ["Doré"], packContents: ["3 bougeoirs dorés"] },
+    { id: "vase-cylindrique-verre-tailles", name: "3 vases cylindriques en verre — plusieurs tailles", price: 6, description: "Lot de 3 vases cylindriques en verre. Plusieurs tailles.", colors: ["Verre transparent"], packContents: ["3 vases cylindriques en verre"] },
     { id: "soliflore", name: "Soliflore", price: 0.95 },
     { id: "soliflore-fleurs-artificielles", name: "Soliflore avec fleurs artificielles", price: 6 },
+    { id: "vase-boheme-elance", name: "Vase bohème élancé", price: 1.1 },
     { id: "photophore-verre", name: "Photophore en verre", price: 0.8, colors: ["Verre transparent"] },
     { id: "porte-bougie-suspendre", name: "Porte-bougie en verre à suspendre", price: 1.1, colors: ["Verre transparent"] },
     {
@@ -154,14 +158,17 @@ const groups: ProductGroup[] = [
       ],
     },
     { id: "numero-table-moderne", name: "Numéro de table moderne", price: 3 },
-    { id: "miroir-centre-table-plexiglas-50", name: "Miroir de centre de table en plexiglas — 50 cm", price: 7, dimensions: ["Diamètre : 50 cm"], colors: ["Transparent"] },
-    { id: "miroir-centre-table-dore-50", name: "Miroir doré de centre de table en plexiglas — 50 cm", price: 7, dimensions: ["Diamètre : 50 cm"], colors: ["Doré"] },
-    { id: "lampe-doree", name: "Lampe dorée", price: 2.9, colors: ["Doré"] },
+    { id: "miroir-centre-table-plexiglas-50", name: "Miroir de centre de table en plexiglas — 50 cm", price: 9, dimensions: ["Diamètre : 50 cm"], colors: ["Transparent"], description: "Double face doré et miroir." },
+    { id: "lampe-doree", name: "Lampe dorée", price: 3.9, colors: ["Doré"] },
   ]),
   productGroup("chaises-assises", [
     { id: "housse-chaise", name: "Housse de chaise", price: 1 },
     { id: "noeud-voilage", name: "Nœud en voilage", price: 0.6 },
     { id: "decor-floral-chaise", name: "Décor floral de chaise", price: 2.9 },
+    { id: "banquette-beige", name: "Banquette beige", price: 40, colors: ["Beige"] },
+    { id: "canape-coquillage", name: "Canapé coquillage", price: 90 },
+    { id: "canape-beige", name: "Canapé beige", price: 150, colors: ["Beige"] },
+    { id: "pouf", name: "Pouf", price: 10 },
   ]),
   productGroup("coin-photo", [
     { id: "fond-arque", name: "Fond arqué", price: 49, featured: true },
@@ -169,15 +176,16 @@ const groups: ProductGroup[] = [
     {
       id: "trio-panneaux-luxe-blanc",
       name: "Trio de panneaux Luxe blancs double face (avec et sans lumière)",
-      price: 200,
-      description: "Panneaux uniquement.",
+      price: 190,
+      description: "Uniquement les panneaux.",
       variants: [
-        { id: "avec-lumiere", name: "Avec lumière", price: 200 },
-        { id: "sans-lumiere", name: "Sans lumière", price: 200 },
+        { id: "avec-lumiere", name: "Avec lumière", price: 190 },
+        { id: "sans-lumiere", name: "Sans lumière", price: 190 },
       ],
       packContents: ["3 panneaux blancs Luxe double face"],
       packLimit: 1,
     },
+    { id: "panneau-blanc-ouvert", name: "Panneau blanc ouvert", price: 40, description: "Uniquement le panneau.", packLimit: 1 },
     { id: "duo-panneaux-blancs-ouverts", name: "Duo de panneaux blancs ouverts", price: 90, description: "Panneaux uniquement.", packContents: ["2 panneaux blancs ouverts"], packLimit: 1 },
     { id: "trio-arches-nuptiales-blanches", name: "Trio d’arches nuptiales blanches", price: 45, description: "Arches uniquement.", packContents: ["3 arches nuptiales blanches"], packLimit: 1 },
     { id: "mur-fleurs", name: "Mur de fleurs", price: 290, colors: ["Blanc", "Rose blush"], variants: [{ id: "blanc", name: "Blanc", price: 290 }, { id: "rose-blush", name: "Rose blush", price: 290 }], featured: true },
@@ -212,20 +220,20 @@ const groups: ProductGroup[] = [
     {
       id: "colonnes-boules-fleurs-rouges-blanches-35",
       name: "2 colonnes avec boules de fleurs rouges et blanches — 35 cm",
-      price: 30,
+      price: 39,
       dimensions: ["Boules : 35 cm"],
       colors: ["Colonnes dorées ou transparentes", "Fleurs rouges et blanches"],
-      variants: [{ id: "dore", name: "Colonnes dorées", price: 30 }, { id: "transparent", name: "Colonnes transparentes", price: 30 }],
+      variants: [{ id: "dore", name: "Colonnes dorées", price: 39 }, { id: "transparent", name: "Colonnes transparentes", price: 39 }],
       packContents: ["2 colonnes au choix", "2 boules de fleurs rouges et blanches"],
       packLimit: 1,
     },
     {
       id: "colonnes-boules-gypsophile-35",
       name: "2 colonnes avec boules de gypsophile — 35 cm",
-      price: 30,
+      price: 39,
       dimensions: ["Boules : 35 cm"],
       colors: ["Colonnes dorées ou transparentes", "Gypsophile"],
-      variants: [{ id: "dore", name: "Colonnes dorées", price: 30 }, { id: "transparent", name: "Colonnes transparentes", price: 30 }],
+      variants: [{ id: "dore", name: "Colonnes dorées", price: 39 }, { id: "transparent", name: "Colonnes transparentes", price: 39 }],
       packContents: ["2 colonnes au choix", "2 boules de gypsophile"],
       packLimit: 1,
     },
@@ -254,14 +262,10 @@ const groups: ProductGroup[] = [
     { id: "grand-chandelier-oriental", name: "Grand chandelier oriental", price: 40 },
     { id: "deux-grands-chandeliers-orientaux", name: "2 grands chandeliers orientaux", price: 75, packContents: ["2 grands chandeliers orientaux"], packLimit: 1 },
     { id: "chandelier-dore-120", name: "Chandelier doré — 1,20 m", price: 18, dimensions: ["Hauteur : 1,20 m"], colors: ["Doré"] },
-    { id: "deux-chandeliers-dores-120", name: "2 chandeliers dorés — 1,20 m", price: 25, dimensions: ["Hauteur : 1,20 m"], colors: ["Doré"], packContents: ["2 chandeliers dorés de 1,20 m"], packLimit: 1 },
+    { id: "deux-chandeliers-dores-120", name: "2 chandeliers dorés — 1,20 m", price: 30, dimensions: ["Hauteur : 1,20 m"], colors: ["Doré"], packContents: ["2 chandeliers dorés de 1,20 m"], packLimit: 1 },
     { id: "neon-better-together", name: "Néon Better Together", price: 22 },
     { id: "podium-lumineux-fleuri", name: "Podium lumineux fleuri — 60 × 60 cm", price: 25, dimensions: ["60 × 60 cm"], maxQuantity: 8 },
     { id: "moquette-blanche-3m", name: "Moquette blanche — 3 m", price: 18, dimensions: ["Longueur : 3 m"], colors: ["Blanc"] },
-    { id: "banquette-beige", name: "Banquette beige", price: 40, colors: ["Beige"] },
-    { id: "canape-coquillage", name: "Canapé coquillage", price: 90 },
-    { id: "canape-beige", name: "Canapé beige", price: 120, colors: ["Beige"] },
-    { id: "deux-poufs", name: "2 poufs", price: 15, packContents: ["2 poufs"], packLimit: 1 },
     { id: "tables-basses-gigognes", name: "Tables basses gigognes", price: 30 },
   ]),
   productGroup("fleurs", [
@@ -298,10 +302,10 @@ const groups: ProductGroup[] = [
     { id: "voilage-arche-ovale-2m", name: "Voilage de fond pour arche ovale — 2 m", price: 8, dimensions: ["Pour arche de 2 m"], colors: ["Blanc", "Beige", "Rose", "Noir", "Rouge", "Bleu"], description: "Couleur au choix.", variants: ["blanc", "beige", "rose", "noir", "rouge", "bleu"].map((color) => ({ id: color, name: color[0].toUpperCase() + color.slice(1), price: 8 })) },
     { id: "voilage-arche-ronde-blanc", name: "Voilage de fond blanc pour arche ronde", price: 12, colors: ["Blanc"] },
     { id: "panneaux-dores-pack-4", name: "Panneaux dorés — lot de 4", price: 3, colors: ["Doré"], packContents: ["4 panneaux dorés"] },
-    { id: "presentoirs-cylindriques-blancs-pack-5", name: "5 présentoirs cylindriques blancs", price: 49, colors: ["Blanc"], packContents: ["5 présentoirs cylindriques blancs"] },
-    { id: "presentoirs-cylindriques-blancs-triple", name: "Triple présentoir cylindrique blanc", price: 29, colors: ["Blanc"], packContents: ["3 présentoirs cylindriques blancs"] },
-    { id: "presentoirs-cylindriques-blancs-double", name: "Double présentoir cylindrique blanc", price: 21, colors: ["Blanc"], packContents: ["2 présentoirs cylindriques blancs"] },
-    { id: "presentoir-cylindrique-blanc-80", name: "Présentoir cylindrique blanc — 80 cm", price: 15, dimensions: ["Hauteur : 80 cm"], colors: ["Blanc"] },
+    { id: "presentoirs-cylindriques-blancs-pack-5", name: "5 présentoirs cylindriques blancs", price: 69, dimensions: ["Hauteurs : 90, 75, 60, 55 et 50 cm"], colors: ["Blanc"], packContents: ["5 présentoirs cylindriques blancs"] },
+    { id: "presentoirs-cylindriques-blancs-triple", name: "Triple présentoir cylindrique blanc", price: 49, dimensions: ["Hauteurs : 90, 75 et 55 cm"], colors: ["Blanc"], packContents: ["3 présentoirs cylindriques blancs"] },
+    { id: "presentoirs-cylindriques-blancs-double", name: "Double présentoir cylindrique blanc", price: 29, dimensions: ["Hauteurs : 75 et 60 cm"], colors: ["Blanc"], packContents: ["2 présentoirs cylindriques blancs"] },
+    { id: "presentoir-cylindrique-blanc-75", name: "Présentoir cylindrique blanc — 75 cm", price: 18, dimensions: ["Hauteur : 75 cm"], colors: ["Blanc"] },
     { id: "neon-happy-birthday", name: "Néon Happy Birthday", price: 12 },
   ]),
   productGroup("buffet", [
@@ -313,9 +317,9 @@ const groups: ProductGroup[] = [
   productGroup("coin-mariee", [
     { id: "coin-elena", name: "Coin Elena", price: 190, colors: ["Rouge"], description: "Une déclinaison rouge est indiquée dans le document source." },
     { id: "coin-miranda", name: "Coin Miranda", price: 190 },
-    { id: "coin-elise", name: "Coin Elise", price: 310 },
-    { id: "coin-beaute", name: "Coin Beauté", price: 320 },
-    { id: "coin-lilas", name: "Coin Lilas", price: 290 },
+    { id: "coin-elise", name: "Coin Elise", price: 310, description: "Disponible avec fleurs blanches." },
+    { id: "coin-beaute", name: "Coin Beauty Heart", price: 320, description: "Disponible aussi en blanc." },
+    { id: "coin-lilas", name: "Coin Lilas", price: 360 },
     { id: "coin-tiffany", name: "Coin Tiffany", price: 410 },
     { id: "coin-oriental", name: "Coin Oriental", price: 490 },
     { id: "coin-milana", name: "Coin Milana", price: 490 },
@@ -323,13 +327,49 @@ const groups: ProductGroup[] = [
 ];
 
 const sourcePricingNote =
-  "Montant repris de ENTREE.odt. Le document ne précise pas s’il s’agit d’un tarif de location ou d’achat, ni sa durée ou son unité ; confirmation requise avant affichage public ou calcul de devis.";
+  "Montant repris du document client L.odt. Les informations commerciales sont à confirmer avant confirmation définitive du devis.";
+
+const generatedIllustrations: Record<string, { src: string; alt: string }> = {
+  "nappe-rectangulaire-400": {
+    src: "/images/products/illustration-nappe-rectangulaire.svg",
+    alt: "Illustration générée d’une nappe de table rectangulaire blanche",
+  },
+  "chemin-gaze-coton": {
+    src: "/images/products/illustration-chemin-gaze-coton.svg",
+    alt: "Illustration générée d’un chemin de table en gaze de coton",
+  },
+  "serviette-tissu-blanche": {
+    src: "/images/products/illustration-serviette-blanche.svg",
+    alt: "Illustration générée d’une serviette en tissu blanche",
+  },
+  "serviette-tissu-vert-sauge": {
+    src: "/images/products/illustration-serviette-vert-sauge.svg",
+    alt: "Illustration générée d’une serviette en tissu vert sauge",
+  },
+  soliflore: {
+    src: "/images/products/illustration-soliflore.svg",
+    alt: "Illustration générée d’un soliflore",
+  },
+  "soliflore-fleurs-artificielles": {
+    src: "/images/products/illustration-soliflore-fleurs.svg",
+    alt: "Illustration générée d’un soliflore avec fleurs artificielles",
+  },
+  "moquette-blanche-3m": {
+    src: "/images/products/illustration-moquette-blanche.svg",
+    alt: "Illustration générée d’une moquette blanche de 3 mètres",
+  },
+  "bougie-conique-blanche": {
+    src: "/images/products/illustration-bougie-conique.svg",
+    alt: "Illustration générée d’une bougie conique blanche",
+  },
+};
 
 function toProduct(input: ProductInput, category: string, displayOrder: number): CatalogProduct {
   const variants = (input.variants ?? []).map((variant) => ({
     ...variant,
     displayPrice: variant.displayPrice ?? null,
   }));
+  const generatedIllustration = generatedIllustrations[input.id];
   return {
     id: input.id,
     slug: input.id,
@@ -349,11 +389,13 @@ function toProduct(input: ProductInput, category: string, displayOrder: number):
     packContents: input.packContents ?? [],
     packLimit: input.packLimit ?? null,
     maxQuantity: input.maxQuantity ?? null,
-    image: {
-      src: "/images/products/placeholder.svg",
-      alt: `Image temporaire à remplacer : ${input.name}`,
-      isPlaceholder: true,
-    },
+    image: generatedIllustration
+      ? { src: generatedIllustration.src, alt: generatedIllustration.alt, isPlaceholder: true }
+      : {
+          src: "/images/products/placeholder.svg",
+          alt: `Emplacement photo à fournir : ${input.name}`,
+          isPlaceholder: true,
+        },
     gallery: [],
     availability: "to_confirm",
     isFeatured: input.featured ?? false,
@@ -368,7 +410,7 @@ export const catalogProducts: CatalogProduct[] = groups.flatMap((group) =>
 
 export const catalogSettings = {
   displayPricesPublicly: false,
-  sourceDocument: "ENTREE.odt",
+  sourceDocument: "L.odt",
   pricingNotice: "Tarifs et unités à valider avant confirmation de votre devis.",
 };
 

@@ -28,9 +28,9 @@ const expectedCounts = new Map([
   ["entree-accueil", 7],
   ["salle-ceremonie", 21],
   ["allee-centrale", 6],
-  ["tables", 32],
-  ["chaises-assises", 3],
-  ["coin-photo", 29],
+  ["tables", 35],
+  ["chaises-assises", 7],
+  ["coin-photo", 26],
   ["fleurs", 9],
   ["accessoires", 6],
   ["autres-decoration", 8],
@@ -38,6 +38,7 @@ const expectedCounts = new Map([
   ["coin-mariee", 8],
 ]);
 const removedProducts = [
+  "rideau lumineux bleu roi",
   "urne de mariage",
   "colonne cannelée",
   "lanterne de sol",
@@ -64,7 +65,7 @@ assert.equal(
   "Les accessoires et les finitions",
   "Le libellé actualisé de la catégorie doit être présent.",
 );
-assert.equal(catalogProducts.length, 133, "Toutes les références du catalogue révisé doivent être intégrées.");
+assert.equal(catalogProducts.length, 137, "Toutes les références du catalogue L.odt doivent être intégrées.");
 assert.equal(new Set(catalogCategories.map((category) => category.id)).size, catalogCategories.length);
 assert.equal(new Set(catalogProducts.map((product) => product.id)).size, catalogProducts.length);
 assert.deepEqual(
@@ -81,13 +82,16 @@ for (const [categoryId, expectedCount] of expectedCounts) {
 for (const product of catalogProducts) {
   assert.ok(product.slug && product.name && product.description, `Informations manquantes : ${product.id}`);
   assert.ok(product.isActive, `Un produit de la source ne doit pas être inactif : ${product.id}`);
-  assert.equal(product.image.isPlaceholder, true, `Une photo inventaire ne doit pas être simulée : ${product.id}`);
-  assert.equal(product.image.src, "/images/products/placeholder.svg");
+  assert.equal(product.image.isPlaceholder, true, `Le statut visuel doit rester explicite : ${product.id}`);
+  assert.ok(product.image.src && product.image.alt);
+  if (product.image.src.includes("illustration-")) {
+    assert.match(product.image.alt, /Illustration générée/);
+  }
   assert.equal(product.displayPrice, null, `Un prix ne doit pas être affiché avant confirmation : ${product.id}`);
   assert.equal(product.pricingStatus, "to_confirm", `Le statut tarifaire doit rester à confirmer : ${product.id}`);
   assert.ok(product.price === null || (Number.isFinite(product.price) && product.price >= 0));
   assert.ok(product.priceUnit.includes("confirmer"));
-  assert.ok(product.pricingNotes.includes("ENTREE.odt"));
+  assert.ok(product.pricingNotes.includes("L.odt"));
   if (product.packLimit !== null) assert.ok(product.packLimit > 0);
   if (product.maxQuantity !== null) assert.ok(product.maxQuantity > 0);
   if (product.category === "coin-photo" && product.packContents.length > 0) {
@@ -119,7 +123,7 @@ for (const product of seasonalCompositions) {
 }
 const totalVariants = catalogProducts.reduce((total, product) => total + product.variants.length, 0);
 assert.equal(totalVariants, 32, "Toutes les options de couleurs, finitions, éclairages et tailles restantes doivent être structurées.");
-assert.equal(catalogProducts.filter((product) => product.price !== null).length, 129);
+assert.equal(catalogProducts.filter((product) => product.price !== null).length, 133);
 assert.equal(
   catalogProducts.reduce((total, product) => total + product.variants.filter((variant) => variant.price !== null).length, 0),
   32,
@@ -141,7 +145,7 @@ assert.deepEqual(
 );
 assert.deepEqual(
   panelTrio?.variants.map((variant) => [variant.id, variant.price]),
-  [["avec-lumiere", 200], ["sans-lumiere", 200]],
+  [["avec-lumiere", 190], ["sans-lumiere", 190]],
   "Le trio doit conserver les choix avec et sans lumière au même tarif source.",
 );
 const aislePack = catalogProducts.find((product) => product.id === "pack-allee");
@@ -156,7 +160,7 @@ const knownPrices = new Map([
   ["panneau-bienvenue-plexiglas-fleurs", 60],
   ["miroir-accueil-fleurs", 100],
   ["arche-nuptiale-260", 22],
-  ["trio-panneaux-luxe-blanc", 200],
+  ["trio-panneaux-luxe-blanc", 190],
   ["pack-allee", 110],
   ["nappe-ronde-blanche-280", 9],
   ["bougie-led-blanche", 1.9],
