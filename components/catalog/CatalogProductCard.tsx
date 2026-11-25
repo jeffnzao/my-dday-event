@@ -31,7 +31,11 @@ export function CatalogProductCard({ product }: { product: CatalogProduct }) {
           image={product.image}
           sizes="(max-width: 600px) 48vw, (max-width: 1000px) 32vw, 22vw"
         />
-        <span className="temporary-image-badge">Photo à remplacer</span>
+        {product.image.isPlaceholder && (
+          <span className="temporary-image-badge">
+            {product.image.src.includes("illustration-") ? "Illustration" : "Photo à fournir"}
+          </span>
+        )}
         {product.isFeatured && <span className="catalog-featured-badge">Coup de cœur</span>}
       </div>
       <div className="catalog-product-copy">

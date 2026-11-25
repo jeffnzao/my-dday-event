@@ -6,8 +6,10 @@ import { ArrowRight, LogOut, Plus, RefreshCw, Save } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { catalogCategories } from "@/lib/catalog/categories";
 import type { CatalogProduct, CatalogVariant } from "@/lib/catalog/types";
+import { Photo } from "@/components/shared/Photo";
 import { homeContent } from "@/lib/data";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
+import { VisualPageEditor } from "@/components/admin/VisualPageEditor";
 
 type RequestItem = {
   product_name: string;
@@ -38,7 +40,38 @@ type QuoteRequest = {
 };
 
 type ProductDraft = CatalogProduct & { _new?: boolean };
-type Tab = "requests" | "catalog" | "content";
+type Tab = "dashboard" | "requests" | "catalog" | "media" | "pages" | "galleries" | "content";
+type MediaAsset = {
+  id: string;
+  title: string;
+  description: string;
+  alt_text: string;
+  category: string | null;
+  tags: string[];
+  mime_type: string;
+  file_name: string;
+  byte_size: number;
+  media_type: "image" | "video";
+  status: "draft" | "published" | "archived";
+  created_at: string;
+};
+type SitePage = {
+  id: string;
+  title: string;
+  draft_content: Record<string, unknown>;
+  published_content: Record<string, unknown> | null;
+  status: "draft" | "published";
+};
+type Gallery = {
+  id: string;
+  slug: string;
+  title: string;
+  theme: string;
+  description: string;
+  cover_media_id: string | null;
+  status: "draft" | "published" | "archived";
+  gallery_media?: Array<{ media_id: string; display_order: number }>;
+};
 const statusNames: Record<string, string> = {
   new: "Nouvelle",
   reviewing: "À étudier",
@@ -56,7 +89,7 @@ async function responseJson<T>(response: Response): Promise<T> {
 
 export function OwnerDashboard() {
   const router = useRouter();
-  const [tab, setTab] = useState<Tab>("requests");
+  const [tab, setTab] = useState<Tab>("dashboard");
   const [requests, setRequests] = useState<QuoteRequest[]>([]);
   const [products, setProducts] = useState<CatalogProduct[]>([]);
   const [selectedRequest, setSelectedRequest] = useState<QuoteRequest | null>(null);
@@ -76,6 +109,16 @@ export function OwnerDashboard() {
   const [packContentsText, setPackContentsText] = useState("");
   const [displayPricesPublicly, setDisplayPricesPublicly] = useState(false);
   const [homeDraft, setHomeDraft] = useState(homeContent);
+  const [media, setMedia] = useState<MediaAsset[]>([]);
+  const [pages, setPages] = useState<SitePage[]>([]);
+  const [galleries, setGalleries] = useState<Gallery[]>([]);
+  const [mediaSearch, setMediaSearch] = useState("");
+  const [mediaStatus, setMediaStatus] = useState("all");
+  const [mediaCategory, setMediaCategory] = useState("all");
+  const [uploading, setUploading] = useState(false);
+  const [uploadFiles, setUploadFiles] = useState<File[]>([]);
+  const [selectedGalleryMedia, setSelectedGalleryMedia] = useState<string[]>([]);
+  const [galleryCoverMedia, setGalleryCoverMedia] = useState("");
 
   const loadRequests = useCallback(async () => {
     const params = new URLSearchParams();
@@ -101,11 +144,32 @@ export function OwnerDashboard() {
     setHomeDraft(result.homeContent);
   }, []);
 
+  const loadMedia = useCallback(async () => {
+    const result = await responseJson<{ media: MediaAsset[] }>(
+      await fetch("/api/admin/media", { cache: "no-store" }),
+    );
+    setMedia(result.media);
+  }, []);
+
+  const loadPages = useCallback(async () => {
+    const result = await responseJson<{ pages: SitePage[] }>(
+      await fetch("/api/admin/pages", { cache: "no-store" }),
+    );
+    setPages(result.pages);
+  }, []);
+
+  const loadGalleries = useCallback(async () => {
+    const result = await responseJson<{ galleries: Gallery[] }>(
+      await fetch("/api/admin/galleries", { cache: "no-store" }),
+    );
+    setGalleries(result.galleries);
+  }, []);
+
   const reload = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      await Promise.all([loadRequests(), loadProducts(), loadContent()]);
+      await Promise.all([loadRequests(), loadProducts(), loadContent(), loadMedia(), loadPages(), loadGalleries()]);
       const settings = await responseJson<{ display_prices_publicly: boolean }>(
         await fetch("/api/admin/settings", { cache: "no-store" }),
       );
@@ -115,7 +179,7 @@ export function OwnerDashboard() {
     } finally {
       setLoading(false);
     }
-  }, [loadContent, loadProducts, loadRequests]);
+  }, [loadContent, loadGalleries, loadMedia, loadPages, loadProducts, loadRequests]);
 
   useEffect(() => {
     void reload();
@@ -131,6 +195,15 @@ export function OwnerDashboard() {
       !searchTerm || `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase("fr").includes(searchTerm),
     );
   }, [products, search]);
+
+  const filteredMedia = useMemo(() => {
+    const term = mediaSearch.trim().toLocaleLowerCase("fr");
+    return media.filter((item) =>
+      (mediaStatus === "all" || item.status === mediaStatus) &&
+      (mediaCategory === "all" || item.category === mediaCategory) &&
+      (!term || `${item.title} ${item.description} ${item.category ?? ""} ${item.tags.join(" ")} ${item.file_name}`.toLocaleLowerCase("fr").includes(term)),
+    );
+  }, [media, mediaCategory, mediaSearch, mediaStatus]);
 
   function startProduct(product?: CatalogProduct) {
     const fresh: ProductDraft = product
@@ -230,6 +303,27 @@ export function OwnerDashboard() {
     }
   }
 
+  async function changeProductStatus(id: string, action: "publish" | "draft" | "archive" | "reactivate") {
+    setSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      await responseJson(
+        await fetch(`/api/admin/products/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action }),
+        }),
+      );
+      setMessage(action === "archive" ? "Produit archivé." : "Statut du produit enregistré.");
+      await loadProducts();
+    } catch (statusError) {
+      setError(statusError instanceof Error ? statusError.message : "Le statut du produit n’a pas pu être enregistré.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   async function changePriceVisibility(display_prices_publicly: boolean) {
     setSaving(true);
     setError(null);
@@ -296,6 +390,129 @@ export function OwnerDashboard() {
     }
   }
 
+  async function uploadMedia(files: File[]) {
+    if (!files.length) return;
+    setUploading(true);
+    setSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const form = new FormData();
+      files.forEach((file) => form.append("files", file));
+      form.set("title", files.length === 1 ? files[0].name.replace(/\.[^.]+$/, "") : "");
+      const result = await responseJson<{ media: MediaAsset[] }>(
+        await fetch("/api/admin/media", { method: "POST", body: form }),
+      );
+      setUploadFiles([]);
+      setMessage(`${result.media.length} fichier(s) ont été ajoutés à la médiathèque.`);
+      await loadMedia();
+    } catch (uploadError) {
+      setError(uploadError instanceof Error ? uploadError.message : "Le téléversement a échoué.");
+    } finally {
+      setUploading(false);
+      setSaving(false);
+    }
+  }
+
+  async function updateMedia(id: string, update: Record<string, unknown>) {
+    setSaving(true);
+    setError(null);
+    try {
+      await responseJson(await fetch(`/api/admin/media/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(update),
+      }));
+      setMessage("Média enregistré.");
+      await loadMedia();
+    } catch (mediaError) {
+      setError(mediaError instanceof Error ? mediaError.message : "Le média n’a pas pu être enregistré.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function replaceMedia(id: string, file: File) {
+    setSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      await responseJson(await fetch(`/api/admin/media/${id}`, { method: "POST", body: form }));
+      setMessage("Le fichier a été remplacé.");
+      await loadMedia();
+    } catch (replaceError) {
+      setError(replaceError instanceof Error ? replaceError.message : "Le remplacement n’a pas pu être effectué.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function deleteMedia(item: MediaAsset) {
+    if (!window.confirm(`Supprimer définitivement « ${item.title} » ? Cette action ne peut pas être annulée.`)) return;
+    setSaving(true);
+    setError(null);
+    try {
+      await responseJson(await fetch(`/api/admin/media/${item.id}`, { method: "DELETE" }));
+      setMessage("Le média a été supprimé.");
+      await loadMedia();
+    } catch (deleteError) {
+      setError(deleteError instanceof Error ? deleteError.message : "La suppression a été refusée.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function savePage(page: SitePage, action: "save" | "publish") {
+    setSaving(true);
+    setError(null);
+    setMessage(null);
+    try {
+      await responseJson(await fetch("/api/admin/pages", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: page.id, title: page.title, draftContent: page.draft_content, action }),
+      }));
+      setMessage(action === "publish" ? "La page a été publiée." : "Le brouillon a été enregistré.");
+      await loadPages();
+    } catch (pageError) {
+      setError(pageError instanceof Error ? pageError.message : "La page n’a pas pu être enregistrée.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function createGallery(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    setSaving(true);
+    setError(null);
+    try {
+      await responseJson(await fetch("/api/admin/galleries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: form.get("title"),
+          theme: form.get("theme"),
+          description: form.get("description"),
+          status: form.get("status"),
+          mediaIds: selectedGalleryMedia,
+          coverMediaId: galleryCoverMedia || null,
+        }),
+      }));
+      setMessage("La galerie a été créée.");
+      event.currentTarget.reset();
+      setSelectedGalleryMedia([]);
+      setGalleryCoverMedia("");
+      await loadGalleries();
+    } catch (galleryError) {
+      setError(galleryError instanceof Error ? galleryError.message : "La galerie n’a pas pu être créée.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
   async function logout() {
     const supabase = createSupabaseBrowserClient();
     if (supabase) {
@@ -319,13 +536,35 @@ export function OwnerDashboard() {
         </div>
       </header>
       <div className="admin-tabs" role="tablist" aria-label="Gestion de l’espace propriétaire">
+        <button aria-selected={tab === "dashboard"} onClick={() => setTab("dashboard")} role="tab" type="button">Tableau de bord</button>
         <button aria-selected={tab === "requests"} onClick={() => setTab("requests")} role="tab" type="button">Demandes de devis ({requests.length})</button>
         <button aria-selected={tab === "catalog"} onClick={() => setTab("catalog")} role="tab" type="button">Catalogue ({products.length})</button>
+        <button aria-selected={tab === "media"} onClick={() => setTab("media")} role="tab" type="button">Médiathèque ({media.length})</button>
+        <button aria-selected={tab === "pages"} onClick={() => setTab("pages")} role="tab" type="button">Pages</button>
+        <button aria-selected={tab === "galleries"} onClick={() => setTab("galleries")} role="tab" type="button">Galeries</button>
         <button aria-selected={tab === "content"} onClick={() => setTab("content")} role="tab" type="button">Page d’accueil</button>
       </div>
       {message && <p className="admin-message" role="status">{message}</p>}
       {error && <p className="quote-error" role="alert">{error}</p>}
-      {loading ? <p role="status">Chargement des données…</p> : tab === "requests" ? (
+      {draft && !draft._new && <div className="cms-product-actions">
+        <button className="button" disabled={saving} onClick={() => void changeProductStatus(draft.id, "draft")} type="button">Dépublier</button>
+        <button className="button" disabled={saving} onClick={() => void changeProductStatus(draft.id, "reactivate")} type="button">Réactiver</button>
+        <button className="button" disabled={saving} onClick={() => { if (window.confirm("Archiver cette référence ? Elle restera conservée.")) void changeProductStatus(draft.id, "archive"); }} type="button">Archiver</button>
+      </div>}
+      {loading ? <p role="status">Chargement des données…</p> : tab === "dashboard" ? (
+        <div className="cms-dashboard">
+          <div className="cms-kpis">
+            <button onClick={() => setTab("catalog")} type="button"><strong>{products.length}</strong><span>Produits</span></button>
+            <button onClick={() => setTab("media")} type="button"><strong>{media.length}</strong><span>Médias</span></button>
+            <button onClick={() => setTab("requests")} type="button"><strong>{requests.length}</strong><span>Demandes de devis</span></button>
+          </div>
+          <div className="cms-dashboard-grid">
+            <section><span className="eyebrow">Derniers médias</span>{media.slice(0, 6).map((item) => <p key={item.id}><strong>{item.title}</strong><small>{item.status} · {item.mime_type}</small></p>)}</section>
+            <section><span className="eyebrow">Dernières demandes</span>{requests.slice(0, 6).map((item) => <p key={item.id}><strong>{item.first_name} {item.last_name}</strong><small>{statusNames[item.status]} · {new Date(item.created_at).toLocaleDateString("fr-FR")}</small></p>)}</section>
+            <section><span className="eyebrow">Raccourcis</span><button className="button" onClick={() => setTab("catalog")} type="button">Gérer le catalogue</button><button className="button" onClick={() => setTab("media")} type="button">Ouvrir la médiathèque</button><button className="button" onClick={() => setTab("pages")} type="button">Modifier les pages</button></section>
+          </div>
+        </div>
+      ) : tab === "requests" ? (
         <div className="admin-layout">
           <section className="admin-list" aria-label="Demandes reçues">
             <div className="admin-filters">
@@ -376,9 +615,101 @@ export function OwnerDashboard() {
           <div className="admin-product-list">
             {filteredProducts.map((product) => (
               <button className="admin-product-row" key={product.id} onClick={() => startProduct(product)} type="button">
+                <Photo className="admin-product-thumbnail" image={product.image} sizes="46px" />
                 <span><strong>{product.name}</strong><small>{catalogCategories.find((category) => category.id === product.category)?.shortName ?? product.category} · {product.isActive ? "Actif" : "Inactif"}</small></span>
                 <ArrowRight size={16} aria-hidden="true" />
               </button>
+            ))}
+          </div>
+        </div>
+      ) : tab === "media" ? (
+        <div className="cms-media">
+          <div className="cms-dropzone"
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => { event.preventDefault(); void uploadMedia(Array.from(event.dataTransfer.files)); }}
+          >
+            <strong>Glissez-déposez vos photos ou vidéos ici</strong>
+            <span>Plusieurs fichiers possibles · images jusqu’à 10 Mo · vidéos jusqu’à 100 Mo</span>
+            <label className="button button-dark">Choisir des fichiers
+              <input
+                multiple
+                accept="image/jpeg,image/png,image/webp,image/avif,image/gif,video/mp4,video/webm,video/quicktime"
+                onChange={(event) => { setUploadFiles(Array.from(event.target.files ?? [])); void uploadMedia(Array.from(event.target.files ?? [])); }}
+                type="file"
+              />
+            </label>
+            {uploading && <p role="status">Téléversement en cours…</p>}
+          </div>
+          <div className="cms-media-toolbar">
+            <label>Rechercher<input onChange={(event) => setMediaSearch(event.target.value)} value={mediaSearch} /></label>
+            <label>Statut<select onChange={(event) => setMediaStatus(event.target.value)} value={mediaStatus}><option value="all">Tous</option><option value="draft">Brouillon</option><option value="published">Publié</option><option value="archived">Archivé</option></select></label>
+            <label>Catégorie<select onChange={(event) => setMediaCategory(event.target.value)} value={mediaCategory}>
+              <option value="all">Toutes les catégories</option>
+              {Array.from(new Set(media.map((item) => item.category).filter((category): category is string => Boolean(category)))).sort().map((category) => <option key={category} value={category}>{category}</option>)}
+            </select></label>
+          </div>
+          <div className="cms-media-grid">
+            {filteredMedia.map((item) => (
+              <article className="cms-media-card" key={item.id}>
+                {item.media_type === "image" ? (
+                  <img alt={item.alt_text || item.title} src={`/api/public-media/${item.id}`} />
+                ) : (
+                  <video controls preload="metadata"><source src={`/api/public-media/${item.id}`} type={item.mime_type} /></video>
+                )}
+                <div className="cms-media-fields">
+                  <label>Titre<input maxLength={160} defaultValue={item.title} onBlur={(event) => void updateMedia(item.id, { title: event.target.value })} /></label>
+                  <label>Description<textarea maxLength={2000} defaultValue={item.description} rows={2} onBlur={(event) => void updateMedia(item.id, { description: event.target.value })} /></label>
+                  {item.media_type === "image" && <label>Texte alternatif<input maxLength={250} defaultValue={item.alt_text} onBlur={(event) => void updateMedia(item.id, { altText: event.target.value })} /></label>}
+                  <label>Catégorie<input maxLength={80} defaultValue={item.category ?? ""} onBlur={(event) => void updateMedia(item.id, { category: event.target.value })} /></label>
+                  <label>Étiquettes<input defaultValue={item.tags.join(", ")} onBlur={(event) => void updateMedia(item.id, { tags: event.target.value.split(",") })} /></label>
+                  <p className="cms-media-meta">{item.mime_type} · {Math.max(1, Math.round(item.byte_size / 1024))} Ko · {item.status}</p>
+                  <div className="cms-media-actions">
+                    <button className="button" disabled={saving} onClick={() => void updateMedia(item.id, { status: item.status === "published" ? "draft" : "published" })} type="button">{item.status === "published" ? "Dépublier" : "Publier"}</button>
+                    <button className="button" disabled={saving} onClick={() => void updateMedia(item.id, { status: "archived" })} type="button">Archiver</button>
+                    <label className="button cms-media-replace">Remplacer
+                      <input accept={item.media_type === "image" ? "image/jpeg,image/png,image/webp,image/avif,image/gif" : "video/mp4,video/webm,video/quicktime"} onChange={(event) => { const file = event.target.files?.[0]; if (file) void replaceMedia(item.id, file); event.target.value = ""; }} type="file" />
+                    </label>
+                    <button className="button cms-danger" disabled={saving} onClick={() => void deleteMedia(item)} type="button">Supprimer</button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : tab === "pages" ? (
+        <VisualPageEditor />
+      ) : tab === "galleries" ? (
+        <div className="cms-galleries">
+          <form className="cms-gallery-form" onSubmit={createGallery}>
+            <h2>Créer une galerie</h2>
+            <label>Titre<input name="title" maxLength={160} required /></label>
+            <label>Thème<select name="theme" required><option value="Mariages">Mariages</option><option value="Décoration de salle">Décoration de salle</option><option value="Tables">Tables</option><option value="Cérémonies">Cérémonies</option><option value="Coins photo">Coins photo</option><option value="Anniversaires">Anniversaires</option><option value="Autres événements">Autres événements</option></select></label>
+            <label>Description<textarea name="description" maxLength={2000} rows={3} /></label>
+            <label>État<select name="status"><option value="draft">Brouillon</option><option value="published">Publié</option></select></label>
+            <label>Photos de la galerie
+              <div className="cms-gallery-picker">
+                {media.filter((item) => item.media_type === "image").map((item) => (
+                  <label key={item.id}>
+                    <input checked={selectedGalleryMedia.includes(item.id)} onChange={(event) => setSelectedGalleryMedia((current) => event.target.checked ? [...current, item.id] : current.filter((id) => id !== item.id))} type="checkbox" />
+                    <span>{item.title}</span>
+                  </label>
+                ))}
+              </div>
+            </label>
+            <label>Image de couverture<select value={galleryCoverMedia} onChange={(event) => setGalleryCoverMedia(event.target.value)}>
+              <option value="">Choisir une couverture</option>
+              {media.filter((item) => selectedGalleryMedia.includes(item.id)).map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}
+            </select></label>
+            <button className="button button-dark" disabled={saving} type="submit">Créer la galerie</button>
+          </form>
+          <div className="cms-gallery-list">
+            {galleries.map((gallery) => (
+              <article key={gallery.id}>
+                <span className="eyebrow">{gallery.theme} · {gallery.status}</span>
+                <h3>{gallery.title}</h3>
+                <p>{gallery.description}</p>
+                <small>{gallery.gallery_media?.length ?? 0} médias</small>
+              </article>
             ))}
           </div>
         </div>

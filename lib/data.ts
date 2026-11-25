@@ -2,6 +2,7 @@ export type EditorialImage = {
   src: string;
   alt: string;
   position?: string;
+  fit?: "cover" | "contain";
 };
 
 export type Inspiration = {

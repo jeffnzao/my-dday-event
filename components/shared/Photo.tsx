@@ -23,7 +23,10 @@ export function Photo({ image, className = "", priority = false, sizes = "100vw"
           loading={priority ? "eager" : "lazy"}
           referrerPolicy="no-referrer"
           src={image.src}
-          style={{ objectPosition: image.position ?? "center" }}
+          style={{
+            objectFit: image.fit ?? "cover",
+            objectPosition: image.position ?? "center",
+          }}
         />
       ) : (
         <Image
@@ -32,7 +35,10 @@ export function Photo({ image, className = "", priority = false, sizes = "100vw"
           priority={priority}
           sizes={sizes}
           src={image.src}
-          style={{ objectPosition: image.position ?? "center" }}
+          style={{
+            objectFit: image.fit ?? "cover",
+            objectPosition: image.position ?? "center",
+          }}
         />
       )}
     </div>

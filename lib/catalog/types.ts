@@ -20,6 +20,7 @@ export type ProductImage = {
   src: string;
   alt: string;
   isPlaceholder: boolean;
+  fit?: "cover" | "contain";
 };
 
 export type CatalogProduct = {

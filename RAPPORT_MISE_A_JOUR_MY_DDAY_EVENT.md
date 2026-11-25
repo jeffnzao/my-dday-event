@@ -1,6 +1,6 @@
 # Rapport de mise a jour — MY DDAY EVENT
 
-**Statut global : PREPARE MAIS NON EXECUTE**
+**Statut initial du catalogue commercial : PREPARE MAIS NON EXECUTE**
 
 ## Synthese du catalogue
 
@@ -77,3 +77,28 @@ nappe rectangulaire, chemin gaze de coton, serviette blanche, serviette vert sau
 - Identifiants Vercel, statut du deploiement et URL finale absents.
 
 **STATUT FINAL : BLOQUE — les changements locaux sont prepares mais aucune migration destructive ou non autorisee, aucune publication ni aucune action externe n'a ete executee.**
+
+## Intégration photographique du catalogue — 25 novembre 2026
+
+- Documents ODT examinés : **7**.
+- Médias photographiques extraits et conservés dans `docs/client/photos-catalogue/extracted/` : **160 JPEG**, tous vérifiés contre les fichiers de l’archive. Ils représentent **158 images uniques**; deux paires sont des doublons exacts.
+- Images disposant d’un lien exploitable dans le contenu ODT : **132**. **28 médias** sont orphelins/non attribuables avec certitude et figurent dans « À VALIDER » de `INVENTAIRE_IMAGES.md`. Les deux documents « Les accessoires… » et « Les tables » contiennent aussi 32 ancres d’image sans fichier lié.
+- Photographies intégrées comme visuel principal : **92**, associées à 92 identifiants déjà présents dans `lib/catalog/products.ts`. Les photos secondaires sont conservées dans `extracted/`, mais aucune galerie n’est affichée par l’interface actuelle.
+- Les photos aux ratios très verticaux ou horizontaux sont affichées sans recadrage (`contain`) afin de préserver le produit complet; les autres conservent le cadrage standard.
+- Références avec un visuel spécifique : **100** (**92 photos réelles + 8 SVG illustratifs**). Les 8 illustrations sont conservées et portent le badge « Illustration »; elles ne sont pas présentées comme des photographies.
+- Références toujours sans photographie réelle : **45** (**8** avec illustration SVG et **37** avec l’emplacement générique). Aucun prix, référence, variante ou texte commercial n’a été modifié.
+- Les photos de l’ancien site restent à fournir : rideau blanc 3 m, rideaux lumineux blancs 3 m, socle transparent, nappe ronde blanche, housse de chaise, nœud en voilage et décor floral de chaise. Aucune photo approximative ne leur a été substituée.
+- Inventaire complet (nom source, format, dimensions, ID, catégorie, certitude et action) : `docs/client/photos-catalogue/INVENTAIRE_IMAGES.md`.
+
+### Vérification locale et tests
+
+- `npm run test:catalog` : **réussi** — 137 références, 92 photos, chemins locaux vérifiés.
+- `npm run test:security` : **réussi**.
+- `npm run typecheck` : **réussi**.
+- `npm run build` : **réussi**.
+- `git diff --check` : **réussi**.
+- Vérification navigateur locale : `/collection` affiche 137 cartes et les 137 images/illustrations se décodent sans échec; le filtre « Entrée & accueil » affiche 7 références. L’accueil affiche 4/4 photos principales. `/devis` affiche le catalogue et l’ajout d’une référence met à jour la sélection.
+- Les cartes d’administration affichent désormais une miniature. Leur vérification runtime reste limitée par l’absence de configuration Supabase locale; les API retournent 503 et aucune donnée distante n’a été consultée ou modifiée. La conversion des lignes de base de données utilise la photo locale confirmée à la place d’un ancien placeholder, sans écriture distante.
+- Vérification mobile à 375 px : grille catalogue sur deux colonnes, photos chargées sans déformation ni coupe et aucun débordement horizontal. Dans l’émulation desktop de 390 px, la barre de défilement verticale réduit la zone utile à 375 px et laisse apparaître un dépassement de 6 px au niveau de l’en-tête; il ne se reproduit pas avec une zone utile de 375 px.
+
+**Statut photographique : INTÉGRATION LOCALE TERMINÉE.** Aucun push, migration distante ou déploiement n’a été effectué.
