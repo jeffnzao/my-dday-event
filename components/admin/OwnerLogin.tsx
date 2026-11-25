@@ -12,6 +12,7 @@ export function OwnerLogin({ configured }: { configured: boolean }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -45,7 +46,31 @@ export function OwnerLogin({ configured }: { configured: boolean }) {
         <button className="button button-dark" disabled={loading || !configured} type="submit">
           {loading ? "Connexion…" : "Se connecter"}
         </button>
+        <button
+          className="text-link"
+          disabled={loading || !configured || !email}
+          onClick={async () => {
+            setLoading(true);
+            setError(null);
+            const supabase = createSupabaseBrowserClient();
+            if (!supabase) {
+              setError("La connexion propriétaire n’est pas configurée.");
+              setLoading(false);
+              return;
+            }
+            const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+              redirectTo: `${window.location.origin}/espace-proprietaire/reinitialisation`,
+            });
+            setLoading(false);
+            if (resetError) setError("L’e-mail de réinitialisation n’a pas pu être envoyé.");
+            else setResetSent(true);
+          }}
+          type="button"
+        >
+          Mot de passe oublié
+        </button>
       </form>
+      {resetSent && <p className="admin-message" role="status">Si ce compte existe, un e-mail de réinitialisation a été envoyé.</p>}
       <p>Les comptes sont créés par invitation dans Supabase. L’inscription publique est désactivée.</p>
       <Link className="text-link" href="/">Retour au site</Link>
     </section>

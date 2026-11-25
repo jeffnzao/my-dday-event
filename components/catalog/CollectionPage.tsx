@@ -12,7 +12,7 @@ export function CollectionPage() {
         <p>De l’accueil de vos invités au dernier souvenir de la soirée, imaginez votre décor pièce après pièce.</p>
         <p className="editorial-note">
           {activeCatalogProducts.length} références réparties en {catalogCategories.length} univers.
-          Photos, tarifs et disponibilités restent à confirmer avant publication.
+          Les photos proviennent des documents client; tarifs et disponibilités restent à confirmer avant publication.
         </p>
       </section>
       <section className="collection-grid-section section-pad">

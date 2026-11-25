@@ -1,3 +1,4 @@
+import { getCatalogProduct } from "./products";
 import type { CatalogProduct } from "./types";
 
 type ProductRow = Record<string, unknown>;
@@ -63,6 +64,12 @@ export function productFromDatabaseRow(row: ProductRow, revealPrices: boolean): 
     row.pricing_status === "confirmed" || row.pricing_status === "unpriced"
       ? row.pricing_status
       : "to_confirm";
+  const storedImage = row.image as CatalogProduct["image"];
+  const localImage = getCatalogProduct(row.id)?.image;
+  const image =
+    storedImage.isPlaceholder && localImage && !localImage.isPlaceholder
+      ? localImage
+      : storedImage;
   return {
     id: row.id,
     slug: row.slug,
@@ -93,7 +100,7 @@ export function productFromDatabaseRow(row: ProductRow, revealPrices: boolean): 
     packContents: row.pack_contents,
     packLimit: typeof row.pack_limit === "number" ? row.pack_limit : null,
     maxQuantity: typeof row.max_quantity === "number" ? row.max_quantity : null,
-    image: row.image as CatalogProduct["image"],
+    image,
     gallery: row.gallery as CatalogProduct["gallery"],
     availability: "to_confirm",
     isFeatured: row.is_featured === true,

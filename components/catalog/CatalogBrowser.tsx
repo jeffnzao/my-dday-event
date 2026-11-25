@@ -95,8 +95,9 @@ export function CatalogBrowser() {
         <p className="catalog-no-results">Aucune référence ne correspond à cette recherche.</p>
       )}
       <p className="catalog-temporary-note">
-        Les illustrations sont des emplacements temporaires, pas des photos de l’inventaire réel.
-        Les tarifs et disponibilités restent à confirmer avec MY DDAY EVENT.
+        Les photos sont issues des documents client. Les visuels marqués « Illustration » sont des illustrations générées,
+        et non des photographies; les références marquées « Photo à fournir » n’ont pas encore de visuel.
+        Tarifs et disponibilités restent à confirmer avec MY DDAY EVENT.
       </p>
     </section>
   );

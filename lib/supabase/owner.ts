@@ -6,6 +6,9 @@ export async function getOwnerSession() {
   if (!supabase) return { supabase: null, adminClient: null, owner: false, authenticated: false, error: null as string | null };
   const { data: { user }, error: userError } = await supabase.auth.getUser();
   if (userError) {
+    if (/auth session missing/i.test(userError.message)) {
+      return { supabase, adminClient: null, owner: false, authenticated: false, error: null as string | null };
+    }
     console.error("Owner session verification failed:", userError.message);
     return { supabase, adminClient: null, owner: false, authenticated: false, error: "La session ne peut pas être vérifiée." };
   }
@@ -19,7 +22,11 @@ export async function getOwnerSession() {
     console.error("Owner permission lookup failed:", error.message);
     return { supabase, adminClient: null, owner: false, authenticated: true, error: "Les permissions propriétaire ne peuvent pas être vérifiées." };
   }
-  const ownerIsAuthorized = Boolean(data);
+  const appMetadata = user.app_metadata ?? {};
+  const role = appMetadata.role;
+  const roles = Array.isArray(appMetadata.roles) ? appMetadata.roles : [];
+  const hasOwnerRole = role === "owner" || roles.includes("owner");
+  const ownerIsAuthorized = Boolean(data) && hasOwnerRole;
   return {
     supabase,
     adminClient: ownerIsAuthorized ? createSupabaseServiceClient() : null,
