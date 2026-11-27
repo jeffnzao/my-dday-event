@@ -68,6 +68,8 @@ assert.equal(
 assert.equal(catalogProducts.length, 137, "Toutes les références du catalogue L.odt doivent être intégrées.");
 assert.equal(new Set(catalogCategories.map((category) => category.id)).size, catalogCategories.length);
 assert.equal(new Set(catalogProducts.map((product) => product.id)).size, catalogProducts.length);
+const photographedProducts = catalogProducts.filter((product) => !product.image.isPlaceholder);
+assert.equal(photographedProducts.length, 62, "Les 62 photos fiables extraites doivent être associées à 62 références.");
 assert.deepEqual(
   new Set(catalogProducts.map((product) => product.category)),
   new Set(expectedCounts.keys()),
@@ -82,8 +84,16 @@ for (const [categoryId, expectedCount] of expectedCounts) {
 for (const product of catalogProducts) {
   assert.ok(product.slug && product.name && product.description, `Informations manquantes : ${product.id}`);
   assert.ok(product.isActive, `Un produit de la source ne doit pas être inactif : ${product.id}`);
-  assert.equal(product.image.isPlaceholder, true, `Le statut visuel doit rester explicite : ${product.id}`);
+  assert.equal(
+    product.image.isPlaceholder,
+    product.image.src.endsWith(".svg") || product.image.src.endsWith("placeholder.svg"),
+    `Le statut photo/illustration doit être explicite : ${product.id}`,
+  );
   assert.ok(product.image.src && product.image.alt);
+  assert.ok(
+    fs.existsSync(path.join(root, "public", ...product.image.src.slice(1).split("/"))),
+    `Le fichier image doit exister : ${product.id} (${product.image.src})`,
+  );
   if (product.image.src.includes("illustration-")) {
     assert.match(product.image.alt, /Illustration générée/);
   }
@@ -182,11 +192,13 @@ for (const product of catalogProducts) {
   const adminProduct = productFromDatabaseRow(databaseRow, true);
   const publicProduct = productFromDatabaseRow(databaseRow, false);
   assert.equal(adminProduct?.price, product.price, `L’administration doit conserver le tarif source : ${product.id}`);
+  assert.deepEqual(adminProduct?.image, product.image, `L’image locale intégrée doit remplacer un placeholder distant : ${product.id}`);
+  assert.deepEqual(adminProduct?.gallery, product.gallery, `La galerie locale intégrée doit être conservée : ${product.id}`);
   assert.deepEqual(adminProduct?.variants.map((variant) => variant.price), product.variants.map((variant) => variant.price));
   assert.equal(publicProduct?.price, null, `Un tarif non confirmé ne doit jamais être exposé publiquement : ${product.id}`);
   assert.ok(publicProduct?.variants.every((variant) => variant.price === null));
 }
 
 console.log(
-  `Catalogue vérifié : ${catalogProducts.length} références, ${catalogCategories.length} catégories, ${totalVariants} variantes structurées, ${seasonalCompositions.reduce((total, product) => total + product.variants.length, 0)} variantes tarifées par saison et taille.`,
+  `Catalogue vérifié : ${catalogProducts.length} références, ${photographedProducts.length} photographies intégrées, ${catalogCategories.length} catégories, ${totalVariants} variantes structurées, ${seasonalCompositions.reduce((total, product) => total + product.variants.length, 0)} variantes tarifées par saison et taille.`,
 );

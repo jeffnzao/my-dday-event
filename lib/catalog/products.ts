@@ -329,6 +329,71 @@ const groups: ProductGroup[] = [
 const sourcePricingNote =
   "Montant repris du document client L.odt. Les informations commerciales sont à confirmer avant confirmation définitive du devis.";
 
+const catalogPhotoMapping: Record<string, { src: string; gallery: string[] }> = {
+  "panneau-bienvenue-plexiglas-fleurs": { src: "/images/products/catalogue/entree-accueil/panneau-bienvenue-plexiglas-fleurs.webp", gallery: ["/images/products/catalogue/entree-accueil/panneau-bienvenue-plexiglas-fleurs.webp"] },
+  "panneau-bienvenue-blanc-fleurs": { src: "/images/products/catalogue/entree-accueil/panneau-bienvenue-blanc-fleurs.webp", gallery: ["/images/products/catalogue/entree-accueil/panneau-bienvenue-blanc-fleurs.webp"] },
+  "miroir-accueil-fleurs": { src: "/images/products/catalogue/entree-accueil/miroir-accueil-fleurs.webp", gallery: ["/images/products/catalogue/entree-accueil/miroir-accueil-fleurs.webp", "/images/products/catalogue/entree-accueil/miroir-accueil-fleurs-2.webp"] },
+  "plan-table-blanc-fleurs": { src: "/images/products/catalogue/entree-accueil/plan-table-blanc-fleurs.webp", gallery: ["/images/products/catalogue/entree-accueil/plan-table-blanc-fleurs.webp"] },
+  "plan-table-plexiglas-fleurs": { src: "/images/products/catalogue/entree-accueil/plan-table-plexiglas-fleurs.webp", gallery: ["/images/products/catalogue/entree-accueil/plan-table-plexiglas-fleurs.webp"] },
+  "potelets-dore-corde": { src: "/images/products/catalogue/entree-accueil/potelets-dore-corde.webp", gallery: ["/images/products/catalogue/entree-accueil/potelets-dore-corde.webp"] },
+  "tapis-ceremonie-blanc-30m": { src: "/images/products/catalogue/allee-centrale/tapis-ceremonie-blanc-30m.webp", gallery: ["/images/products/catalogue/allee-centrale/tapis-ceremonie-blanc-30m.webp", "/images/products/catalogue/allee-centrale/tapis-ceremonie-blanc-30m-2.webp"] },
+  "tapis-ceremonie-rouge-30m": { src: "/images/products/catalogue/allee-centrale/tapis-ceremonie-rouge-30m.webp", gallery: ["/images/products/catalogue/allee-centrale/tapis-ceremonie-rouge-30m.webp", "/images/products/catalogue/allee-centrale/tapis-ceremonie-rouge-30m-2.webp"] },
+  "arche-fleurie-entree-260": { src: "/images/products/catalogue/allee-centrale/arche-fleurie-entree-260.webp", gallery: ["/images/products/catalogue/allee-centrale/arche-fleurie-entree-260.webp"] },
+  "boule-fleurs-colonne-doree": { src: "/images/products/catalogue/allee-centrale/boule-fleurs-colonne-doree.webp", gallery: ["/images/products/catalogue/allee-centrale/boule-fleurs-colonne-doree.webp"] },
+  "boule-fleurs-colonne-transparente": { src: "/images/products/catalogue/allee-centrale/boule-fleurs-colonne-transparente.webp", gallery: ["/images/products/catalogue/allee-centrale/boule-fleurs-colonne-transparente.webp"] },
+  "pack-allee": { src: "/images/products/catalogue/allee-centrale/pack-allee.webp", gallery: ["/images/products/catalogue/allee-centrale/pack-allee.webp"] },
+  "banquette-beige": { src: "/images/products/catalogue/chaises-assises/banquette-beige.webp", gallery: ["/images/products/catalogue/chaises-assises/banquette-beige.webp"] },
+  "canape-coquillage": { src: "/images/products/catalogue/chaises-assises/canape-coquillage.webp", gallery: ["/images/products/catalogue/chaises-assises/canape-coquillage.webp"] },
+  "canape-beige": { src: "/images/products/catalogue/chaises-assises/canape-beige.webp", gallery: ["/images/products/catalogue/chaises-assises/canape-beige.webp"] },
+  "pouf": { src: "/images/products/catalogue/chaises-assises/pouf.webp", gallery: ["/images/products/catalogue/chaises-assises/pouf.webp"] },
+  "arche-ronde-doree": { src: "/images/products/catalogue/salle-ceremonie/arche-ronde-doree.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-ronde-doree.webp", "/images/products/catalogue/salle-ceremonie/arche-ronde-doree-2.webp"] },
+  "arche-ronde-blanche": { src: "/images/products/catalogue/salle-ceremonie/arche-ronde-blanche-2.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-ronde-blanche-2.webp"] },
+  "arche-carree-blanche": { src: "/images/products/catalogue/salle-ceremonie/arche-carree-blanche-2.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-carree-blanche-2.webp"] },
+  "arche-carree-doree": { src: "/images/products/catalogue/salle-ceremonie/arche-carree-doree.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-carree-doree.webp"] },
+  "rideau-bleu-roi-3m": { src: "/images/products/catalogue/salle-ceremonie/rideau-bleu-roi-3m.webp", gallery: ["/images/products/catalogue/salle-ceremonie/rideau-bleu-roi-3m.webp"] },
+  "rideaux-croises-blancs": { src: "/images/products/catalogue/salle-ceremonie/rideaux-croises-blancs.webp", gallery: ["/images/products/catalogue/salle-ceremonie/rideaux-croises-blancs.webp", "/images/products/catalogue/salle-ceremonie/rideaux-croises-blancs-2.webp", "/images/products/catalogue/salle-ceremonie/rideaux-croises-blancs-3.webp"] },
+  "rideaux-croises-beige": { src: "/images/products/catalogue/salle-ceremonie/rideaux-croises-beige.webp", gallery: ["/images/products/catalogue/salle-ceremonie/rideaux-croises-beige.webp", "/images/products/catalogue/salle-ceremonie/rideaux-croises-beige-2.webp"] },
+  "structure-rideaux-croises": { src: "/images/products/catalogue/salle-ceremonie/structure-rideaux-croises.webp", gallery: ["/images/products/catalogue/salle-ceremonie/structure-rideaux-croises.webp"] },
+  "arche-romantique-doree": { src: "/images/products/catalogue/salle-ceremonie/arche-romantique-doree-2.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-romantique-doree-2.webp"] },
+  "arche-coeur": { src: "/images/products/catalogue/salle-ceremonie/arche-coeur.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-coeur.webp", "/images/products/catalogue/salle-ceremonie/arche-coeur-2.webp"] },
+  "arche-nuptiale-260": { src: "/images/products/catalogue/salle-ceremonie/arche-nuptiale-260.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-nuptiale-260.webp", "/images/products/catalogue/salle-ceremonie/arche-nuptiale-260-2.webp"] },
+  "arche-cathedrale-200": { src: "/images/products/catalogue/salle-ceremonie/arche-cathedrale-200-2.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-cathedrale-200-2.webp"] },
+  "arche-ronde-beauty-ouverte": { src: "/images/products/catalogue/salle-ceremonie/arche-ronde-beauty-ouverte.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-ronde-beauty-ouverte.webp", "/images/products/catalogue/salle-ceremonie/arche-ronde-beauty-ouverte-2.webp"] },
+  "arche-elegante": { src: "/images/products/catalogue/salle-ceremonie/arche-elegante.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-elegante.webp"] },
+  "arche-ovale-blanche-2m": { src: "/images/products/catalogue/salle-ceremonie/arche-ovale-blanche-2m.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-ovale-blanche-2m.webp"] },
+  "arche-hexagone-bois": { src: "/images/products/catalogue/salle-ceremonie/arche-hexagone-bois.webp", gallery: ["/images/products/catalogue/salle-ceremonie/arche-hexagone-bois.webp", "/images/products/catalogue/salle-ceremonie/arche-hexagone-bois-3.webp"] },
+  "fond-arque": { src: "/images/products/catalogue/coin-photo/fond-arque.webp", gallery: ["/images/products/catalogue/coin-photo/fond-arque.webp", "/images/products/catalogue/coin-photo/fond-arque-2.webp"] },
+  "panneau-blanc-ouvert": { src: "/images/products/catalogue/coin-photo/panneau-blanc-ouvert.webp", gallery: ["/images/products/catalogue/coin-photo/panneau-blanc-ouvert.webp"] },
+  "supports-vases-grandes-compositions": { src: "/images/products/catalogue/coin-photo/supports-vases-grandes-compositions-2.webp", gallery: ["/images/products/catalogue/coin-photo/supports-vases-grandes-compositions-2.webp"] },
+  "colonnes-grandes-compositions-blanches": { src: "/images/products/catalogue/coin-photo/colonnes-grandes-compositions-blanches.webp", gallery: ["/images/products/catalogue/coin-photo/colonnes-grandes-compositions-blanches.webp"] },
+  "colonnes-boules-gypsophile-35": { src: "/images/products/catalogue/coin-photo/colonnes-boules-gypsophile-35.webp", gallery: ["/images/products/catalogue/coin-photo/colonnes-boules-gypsophile-35.webp"] },
+  "arche-fleurie-alba": { src: "/images/products/catalogue/coin-photo/arche-fleurie-alba.webp", gallery: ["/images/products/catalogue/coin-photo/arche-fleurie-alba.webp"] },
+  "chemin-floral-rose-2m": { src: "/images/products/catalogue/fleurs/chemin-floral-rose-2m.webp", gallery: ["/images/products/catalogue/fleurs/chemin-floral-rose-2m.webp"] },
+  "chemin-floral-1m-25": { src: "/images/products/catalogue/fleurs/chemin-floral-1m-25.webp", gallery: ["/images/products/catalogue/fleurs/chemin-floral-1m-25.webp"] },
+  "nappe-rectangulaire-elegante-marie": { src: "/images/products/catalogue/tables/nappe-rectangulaire-elegante-marie.webp", gallery: ["/images/products/catalogue/tables/nappe-rectangulaire-elegante-marie.webp", "/images/products/catalogue/tables/nappe-rectangulaire-elegante-marie-2.webp"] },
+  "chemin-satin-dore": { src: "/images/products/catalogue/tables/chemin-satin-dore.webp", gallery: ["/images/products/catalogue/tables/chemin-satin-dore.webp"] },
+  "centre-table-bas-dore": { src: "/images/products/catalogue/tables/centre-table-bas-dore.webp", gallery: ["/images/products/catalogue/tables/centre-table-bas-dore.webp"] },
+  "centre-table-bas-blanc": { src: "/images/products/catalogue/tables/centre-table-bas-blanc.webp", gallery: ["/images/products/catalogue/tables/centre-table-bas-blanc.webp"] },
+  "centre-table-haut-dore-80": { src: "/images/products/catalogue/tables/centre-table-haut-dore-80.webp", gallery: ["/images/products/catalogue/tables/centre-table-haut-dore-80.webp"] },
+  "bougeoir-dore-tailles": { src: "/images/products/catalogue/tables/bougeoir-dore-tailles.webp", gallery: ["/images/products/catalogue/tables/bougeoir-dore-tailles.webp"] },
+  "vase-cylindrique-verre-tailles": { src: "/images/products/catalogue/tables/vase-cylindrique-verre-tailles.webp", gallery: ["/images/products/catalogue/tables/vase-cylindrique-verre-tailles.webp"] },
+  "lampe-doree": { src: "/images/products/catalogue/tables/lampe-doree.webp", gallery: ["/images/products/catalogue/tables/lampe-doree.webp"] },
+  "bougie-led-blanche": { src: "/images/products/catalogue/accessoires/bougie-led-blanche.webp", gallery: ["/images/products/catalogue/accessoires/bougie-led-blanche.webp", "/images/products/catalogue/accessoires/bougie-led-blanche-2.webp"] },
+  "lettre-doree-25": { src: "/images/products/catalogue/accessoires/lettre-doree-25.webp", gallery: ["/images/products/catalogue/accessoires/lettre-doree-25.webp"] },
+  "papillon-lumineux": { src: "/images/products/catalogue/accessoires/papillon-lumineux.webp", gallery: ["/images/products/catalogue/accessoires/papillon-lumineux.webp"] },
+  "grand-noeud-decoration-rose-blanc": { src: "/images/products/catalogue/accessoires/grand-noeud-decoration-rose-blanc.webp", gallery: ["/images/products/catalogue/accessoires/grand-noeud-decoration-rose-blanc.webp", "/images/products/catalogue/accessoires/grand-noeud-decoration-rose-blanc-2.webp"] },
+  "grand-noeud-rouge": { src: "/images/products/catalogue/accessoires/grand-noeud-rouge.webp", gallery: ["/images/products/catalogue/accessoires/grand-noeud-rouge.webp"] },
+  "fontaine-jus-lumineuse": { src: "/images/products/catalogue/buffet/fontaine-jus-lumineuse.webp", gallery: ["/images/products/catalogue/buffet/fontaine-jus-lumineuse.webp"] },
+  "coin-elena": { src: "/images/products/catalogue/coin-mariee/coin-elena.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-elena.webp", "/images/products/catalogue/coin-mariee/coin-elena-2.webp"] },
+  "coin-miranda": { src: "/images/products/catalogue/coin-mariee/coin-miranda.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-miranda.webp", "/images/products/catalogue/coin-mariee/coin-miranda-2.webp"] },
+  "coin-elise": { src: "/images/products/catalogue/coin-mariee/coin-elise.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-elise.webp"] },
+  "coin-beaute": { src: "/images/products/catalogue/coin-mariee/coin-beaute.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-beaute.webp", "/images/products/catalogue/coin-mariee/coin-beaute-2.webp"] },
+  "coin-lilas": { src: "/images/products/catalogue/coin-mariee/coin-lilas.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-lilas.webp", "/images/products/catalogue/coin-mariee/coin-lilas-2.webp"] },
+  "coin-tiffany": { src: "/images/products/catalogue/coin-mariee/coin-tiffany.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-tiffany.webp", "/images/products/catalogue/coin-mariee/coin-tiffany-2.webp"] },
+  "coin-oriental": { src: "/images/products/catalogue/coin-mariee/coin-oriental.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-oriental.webp"] },
+  "coin-milana": { src: "/images/products/catalogue/coin-mariee/coin-milana.webp", gallery: ["/images/products/catalogue/coin-mariee/coin-milana.webp", "/images/products/catalogue/coin-mariee/coin-milana-2.webp"] },
+};
+
 const generatedIllustrations: Record<string, { src: string; alt: string }> = {
   "nappe-rectangulaire-400": {
     src: "/images/products/illustration-nappe-rectangulaire.svg",
@@ -370,6 +435,14 @@ function toProduct(input: ProductInput, category: string, displayOrder: number):
     displayPrice: variant.displayPrice ?? null,
   }));
   const generatedIllustration = generatedIllustrations[input.id];
+  const catalogPhoto = catalogPhotoMapping[input.id];
+  const photoGallery = catalogPhoto
+    ? catalogPhoto.gallery.map((src) => ({
+        src,
+        alt: `Photographie de ${input.name}`,
+        isPlaceholder: false,
+      }))
+    : [];
   return {
     id: input.id,
     slug: input.id,
@@ -389,14 +462,20 @@ function toProduct(input: ProductInput, category: string, displayOrder: number):
     packContents: input.packContents ?? [],
     packLimit: input.packLimit ?? null,
     maxQuantity: input.maxQuantity ?? null,
-    image: generatedIllustration
+    image: catalogPhoto
+      ? {
+          src: catalogPhoto.src,
+          alt: `Photographie de ${input.name}`,
+          isPlaceholder: false,
+        }
+      : generatedIllustration
       ? { src: generatedIllustration.src, alt: generatedIllustration.alt, isPlaceholder: true }
       : {
           src: "/images/products/placeholder.svg",
           alt: `Emplacement photo à fournir : ${input.name}`,
           isPlaceholder: true,
         },
-    gallery: [],
+    gallery: photoGallery,
     availability: "to_confirm",
     isFeatured: input.featured ?? false,
     isActive: true,

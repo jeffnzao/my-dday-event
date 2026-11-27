@@ -120,7 +120,7 @@ export function HomePage() {
                 <Photo className="product-image" image={product.image} sizes="(max-width: 760px) 82vw, 25vw" />
                 <span className="product-number">0{index + 1}</span>
                 <span className="product-arrow"><ArrowRight size={17} aria-hidden="true" /></span>
-                <span className="temporary-image-badge">Photo à remplacer</span>
+                {product.image.isPlaceholder && <span className="temporary-image-badge">Photo à remplacer</span>}
               </div>
               <span className="product-category">{catalogCategories.find((category) => category.id === product.category)?.shortName}</span>
               <h3>{product.name}</h3>

@@ -1,0 +1,326 @@
+
+
+### ALLEE CENTRALE ET ASSISES.odt
+TEXT  ALLEE CENTRALE
+TEXT  Tapis de cérémonie blanc 30mètres sur 1mètre Tarif :90euros
+IMAGE media/image1.jpeg
+IMAGE media/image2.jpeg
+TEXT  Tapis de cérémonie rouge 30mètres sur 1mètre Tarif : 80euros
+IMAGE media/image3.jpg
+IMAGE media/image4.jpg
+TEXT  Arche fleurie d'entrée 2m60 Tarif :200euros
+IMAGE media/image5.jpg
+TEXT  Boule de fleurs allée avec colonne dorée Tarif :15euros
+IMAGE media/image6.jpeg
+TEXT  Boule de fleurs allée avec colonne transparent Tarif :18euros
+IMAGE media/image7.jpeg
+TEXT  Pack allée (comprend une arche doré, 6 potelets et 6 boules de fleurs) Tarif :110euros
+IMAGE media/image8.jpeg
+TEXT  LES CHAISES ET LES ASSSISES
+TEXT  Housse de chaise Tarif :1euros
+TEXT  Nœud en voilage Tarif : 0.60euros
+TEXT  Décor floral de chaise Tarif : 2.90euros
+TEXT  Banquette beige Tarif :40euros
+IMAGE media/image9.jpeg
+TEXT  Canapé coquillage 90euros
+IMAGE media/image10.jpg
+TEXT  Canapé beige 150euros
+IMAGE media/image11.jpeg
+TEXT  Pouf Tarif :10euros
+IMAGE media/image12.jpeg
+
+
+### COIN FOTO A PERSONNALISER ET LES FLEURS.odt
+TEXT  LE COIN PHOTO (A PERSONNALISER)
+TEXT  Fond arqué (uniquement le panneau) Tarif :49euros
+IMAGE media/image1.jpeg
+IMAGE media/image2.jpeg
+TEXT  Trio panneau luxe blanc double face (avec et sans lumière. Uniquement les panneaux) Tarif :190euros
+IMAGE media/image3.jpeg
+IMAGE media/image4.jpeg
+TEXT  Panneau blanc ouvert (uniquement le panneau) Tarif :40euros
+IMAGE media/image5.jpeg
+IMAGE media/image6.jpg
+TEXT  Duo panneau blanc ouvert ( uniquement les panneaux) Tarif :90euros
+IMAGE media/image7.jpg
+IMAGE media/image8.jpeg
+TEXT  Trio arche cathédrale (uniquement les arches) Tarif :55euros
+IMAGE media/image9.jpeg
+IMAGE media/image10.jpeg
+TEXT  Trio arche nuptial blanc (uniquement les arches) Tarif :45euros
+IMAGE media/image11.jpg
+TEXT  Mur de fleur blanc ( disponible en rose blush) Tarif :290 euros
+IMAGE media/image12.jpg
+IMAGE media/image13.jpg
+TEXT  2 supports blanc et 2 vases avec 2 grandes compositions de fleurs blanche (75cm) Tarif :119euros
+IMAGE media/image14.jpeg
+IMAGE media/image15.jpeg
+TEXT  2 colonnes doré ou transparent avec 2 grandes compositions florale blanche(75cm) Tarif : 89euros
+IMAGE media/image16.jpeg
+TEXT  2 colonnes doré ou transparent avec 2 boules de fleurs vive (55cm) (orange et fuschia) Tarif : 69euros
+IMAGE media/image17.jpg
+TEXT  2 colonnes dorée ou transparente avec 2 boules de fleur rouge et blanc(35cm ) Tarif :39 euros
+IMAGE media/image18.jpeg
+TEXT  2 colonnes dorée ou transparent avec 2 boules de fleur gypsophile(35cm) Tarif : 39euros
+IMAGE media/image19.jpeg
+TEXT  2 colonnes dorée ou transparent avec 2 boules de fleur rose et champagne(45cm) Tarif :39 euros
+IMAGE media/image20.jpeg
+TEXT  2 supports miroir avec 2 chandeliers cristal en verre (100cm) Tarif :109euros
+IMAGE media/image21.jpg
+TEXT  Arche fleurie Alba (fleur inclus) Tarif :175euros
+IMAGE media/image22.jpeg
+TEXT  Lustre Tarif : 50euros
+IMAGE media/image23.jpg
+TEXT  Chandelier cristal doré avec structure Tarif :45euros
+IMAGE media/image24.jpeg
+TEXT  2 Chandeliers cristal doré avec structure Tarif : 80euros
+IMAGE media/image25.jpeg
+TEXT  Grand Chandelier oriental à suspension Tarif :40euros
+IMAGE media/image26.jpeg
+TEXT  2 Grands chandeliers oriental à suspension Tarif :75euros
+IMAGE media/image27.jpg
+TEXT  Chandelier doré 1m20 Tarif :18 euros
+IMAGE media/image28.jpg
+TEXT  2 Chandelier doré 1m20 Tarif :30euros
+IMAGE media/image29.jpg
+TEXT  Néon « better together » Tarif: 22euros
+IMAGE media/image30.jpg
+TEXT  1 Podium lumineux fleurie (60cm/60cm , commande limitée à 8 podiums) Tarif : 25euros
+IMAGE media/image31.jpeg
+TEXT  Moquette blanche 3m Tarif :18euros
+TEXT  Tables basse gigogne Tarif : 30euros
+IMAGE media/image32.jpeg
+TEXT  A noter: Les commandes de packs coin photo sont limitées à un produit de chaque.
+TEXT  LES FLEURS
+TEXT  Chemin floral blanc 2m/40cm Tarif : 45euros
+IMAGE media/image33.jpeg
+TEXT  Chemin floral rouge 2m/40cm Tarif :45euros
+IMAGE media/image34.jpg
+TEXT  Chemin floral rose 2m/40cm Tarif : 45euros
+IMAGE media/image35.jpeg
+TEXT  Chemin floral nature (vert et blanc) 2m/40cm Tarif :45euros
+IMAGE media/image36.jpg
+TEXT  Chemin floral 1m/25cm Tarif :12euros
+IMAGE media/image37.jpeg
+
+
+### LA SALLE.odt
+TEXT  LA SALLE
+TEXT  Arche rond doré (uniquement l’arche) tarif :20euros
+IMAGE media/image1.jpeg
+IMAGE media/image2.jpeg
+TEXT  Arche rond blanc (uniquement l’arche) Tarif :20euros
+IMAGE media/image3.jpg
+IMAGE media/image4.jpeg
+TEXT  Arche carré blanc (uniquement l’arche) Tarif :20euros
+IMAGE media/image5.jpeg
+IMAGE media/image6.jpeg
+TEXT  Arche carré doré(uniquement l’arche) tarif :20euros
+IMAGE media/image7.jpeg
+IMAGE media/image8.jpg
+TEXT  Rideau blanc 3mètres (tissus lycra, uniquement le rideau) Tarif :15euros
+TEXT  Rideaux lumineux blancs 3 mètres (uniquement le rideau lumineux) Tarif :25euros
+TEXT  Rideau bleu roi 3mètres(uniquement le rideau) tarif :15euros
+IMAGE media/image9.jpeg
+TEXT  Rideaux croisés blanc (uniquement le rideau croisé) Tarif :30euros
+IMAGE media/image10.jpeg
+IMAGE media/image11.jpeg
+IMAGE media/image12.jpeg
+TEXT  Rideaux croisés beige(uniquement le rideau croisé) Tarif :40euros
+IMAGE media/image13.jpeg
+IMAGE media/image14.jpeg
+TEXT  Structure rideau Tarif :20euros
+IMAGE media/image15.jpeg
+TEXT  Structure rideaux croisés Tarif :28euros
+IMAGE media/image16.jpeg
+IMAGE media/image17.jpeg
+TEXT  Arche romantique doré 2 mètres (uniquement l’arche) Tarif :18euros
+IMAGE media/image18.jpg
+IMAGE media/image19.jpeg
+IMAGE media/image20.jpg
+TEXT  Arche cœur (uniquement l’arche) Tarif :18euros
+IMAGE media/image21.jpeg
+IMAGE media/image22.jpeg
+TEXT  Arche nuptial 2m60 ( uniquement l’arche) Tarif :22euros
+IMAGE media/image23.jpeg
+IMAGE media/image24.jpeg
+TEXT  Arche cathédrale 2mètres (uniquement l’arche) Tarif :22euros
+IMAGE media/image25.jpeg
+IMAGE media/image26.jpeg
+TEXT  Arche cathédrale 2m40 (uniquement l’arche) Tarif :30euros
+IMAGE media/image27.jpeg
+TEXT  Arche ronde doré beauty ouvert Tarif :40euros
+IMAGE media/image28.jpg
+IMAGE media/image29.jpeg
+TEXT  Arche élégant (uniquement l’arche) Tarif :50euros
+IMAGE media/image30.jpg
+IMAGE media/image31.jpg
+TEXT  Arche ovale blanc 2mètres Tarif :10euros
+IMAGE media/image32.jpeg
+IMAGE media/image33.jpg
+TEXT  Arche hexagone en bois (uniquement l’arche) Tarif :40euros
+IMAGE media/image34.jpeg
+IMAGE media/image35.jpeg
+IMAGE media/image36.jpeg
+
+
+### LES ASSESSOIRS ,AUTRES ET BUFFET.odt
+TEXT  LES ASSESSOIRS
+TEXT  Bougies conique blanche Tarif :0,40euros
+TEXT  Bougie LED blanche Tarif :1,90euros
+IMAGE media/image1.jpeg
+IMAGE media/image2.jpg
+TEXT  Lettre doré (pour initial prénom )25cm Tarif : 1,20euros à l’unité
+IMAGE media/image3.jpeg
+TEXT  Papillon lumineux Tarif : 28euros
+IMAGE media/image4.jpg
+TEXT  Grand Noeud décoration 80cm/4m (couleur au choix : rose ou blanc) tarif :10euros
+IMAGE media/image5.jpg
+IMAGE media/image6.jpg
+TEXT  Grand nœud rouge velours 50cm/3m Tarif : 8euros
+IMAGE media/image7.jpg
+TEXT  AUTRES
+TEXT  Voilagefond pour arche ovale 2mètre (Uniquement le voilage .Couleur au choix : blanc ,beige, rose, noir ,rouge, bleu) Tarif :8euros
+IMAGE 
+TEXT  Voilage fond blanc pour arche rond 2mètres (uniquement le voilage) Tarif :12euros
+IMAGE media/image10.jpeg
+TEXT  Panneau doré (4pièces) Tarif : 3 euros
+IMAGE media/image12.jpeg
+TEXT  5 présentoirs cylindrique blanche (90cm,75cm,60cm,55cm,50cm) Tarif :69euros
+TEXT  Triple présentoirs cylindrique blanche (90cm,75cm,55cm) Tarif :49euros
+TEXT  Double présentoirscylindrique blanche (75cm,60cm) Tarif :29euros
+TEXT  Un présentoir cylindrique 75cm Tarif :18euros
+TEXT  Néon happy birthday Tarif :12euros
+TEXT  BUFFET
+TEXT  5 grands Cubes blanc (plusieurs tailles) Tarif : 50euros
+TEXT  10 grands cube blanc (plusieurs taille) Tarif :100euros
+TEXT  Distributeur de boisson 2L Tarif : 10euros
+TEXT  Fontaine à jus lumineux Tarif :18euros
+IMAGE media/image18.jpg
+
+
+### SITE   LES TABLES.odt
+TEXT  LES TABLES
+TEXT  Nappe de table rond blanc Tarif :9 euros
+TEXT  Nappe detable rectangle blanc Tarif : 9euros
+TEXT  Nappe de table ronde élégant pour table marié Tarif :15euros
+IMAGE media/image1.jpeg
+TEXT  Nappe de table rectangulaire élégant pour table marié Tarif : 18euros
+IMAGE media/image2.jpeg
+IMAGE media/image3.jpeg
+TEXT  Chemin de table mousseline rose pèche Tarif :6 euros
+IMAGE 
+TEXT  Chemin de table mousseline vert sauge Tarif : 6euros
+IMAGE media/image6.jpeg
+TEXT  Chemin de table mousseline bleu roi Tarif : 6euros
+IMAGE media/image8.jpg
+TEXT  Chemin de table satin doré Tarif :3euros
+IMAGE media/image9.jpg
+TEXT  Chemin de table satin rouge Tarif :3euros
+IMAGE media/image10.jpg
+TEXT  Chemin de table gaze de coton (couleur au choix) Tarif : 4euros
+TEXT  Serviette en tissu blanc Tarif : 0,50euros
+TEXT  Serviette en tissu vert sauge Tarif :0,50euros
+TEXT  Rond de serviette doré Tarif : 0,30euros
+TEXT  Centre de table bas doré Tarif :4euros
+IMAGE media/image13.jpeg
+TEXT  Centre de table bas blanc  Tarif : 4euros
+IMAGE media/image14.jpeg
+TEXT  Centre de table haut transparent 60cm (uniquement la colonne) Tarif :10euros
+TEXT  Centre de table haut doré 80cm (uniquement la colonne doré) Tarif : 10euros
+IMAGE media/image17.jpeg
+IMAGE media/image18.jpeg
+TEXT  Vase trompette 50cm Tarif : 8euros
+TEXT  Chandelier transparent 5branches 86cm Tarif : 15euros
+TEXT  Chandelier doré 50cm Tarif :10euros
+TEXT  3 Bougeoirs transparent(Plusieurs tailles ) Tarif : 4,50euros
+TEXT  3 Bougeoirs doré ( Plusieurs tailles ) Tarif :3,60 euros
+IMAGE media/image25.jpeg
+TEXT  3 Vases cylindrique en verre ( Plusieurs tailles ) Tarif : 6 euros
+IMAGE media/image26.jpeg
+TEXT  Soliflore Tarif :0,95euros
+TEXT  Soliflore avec fleurs artificielles Tarif : 6euros
+TEXT  1 Vase bohème élancée Tarif : 1,10 euros
+TEXT  1 Photophore en verre Tarif : 0,80euros
+TEXT  1 Porte bougie en verre à suspendre Tarif : 1,10 euros
+IMAGE media/image29.jpg
+TEXT  Composition florale pour centre de table(disponible en plusieurs couleurs) :
+TEXT  Couleur été (fleurs couleur vive) 2 tailles disponible:
+TEXT  40cm Tarif :15euro
+TEXT  50cm Tarif : 28euros
+TEXT  Couleur hiver (fleurs couleur neutre) 2 tailles : 40cm à 15euros et 50cm à 28euros
+TEXT  Couleur printemps (fleur blanche et feuillage) 2tailles disponible :
+TEXT  40cm Tarif :15euros
+TEXT  50cm Tarif : 28euros
+TEXT  Couleur automne (fleur pampas et gypsophile et autres) 2 tailles disponible :
+TEXT  40cm Tarif : 15euros
+TEXT  50cm Tarif :28euros
+TEXT  Numéro de table moderne Tarif : 3 euros
+IMAGE media/image34.jpg
+TEXT  Miroir centre de table plexiglas (double face doré et miroir) 50cm Tarif :9euros
+TEXT  Lampe doré Tarif : 3,90euros
+IMAGE media/image36.jpg
+
+
+### SITE 1  ENTREE.odt
+TEXT  L’ENTREE ET L’ ACCUEIL
+TEXT  Panneau de bienvenue plexiglas personnalisée avec composition florale Tarif :60euros
+IMAGE media/image1.jpeg
+TEXT  Panneau de bienvenue blanc personnalisé avec composition florale tarif :70euros
+IMAGE media/image2.jpeg
+TEXT  Miroir d’accueil personnalisé avec composition florale Tarif :100euros
+IMAGE media/image3.jpeg
+IMAGE media/image4.jpeg
+TEXT  Chevalet doré Tarif :12euros
+TEXT  Plan de table blanc avec composition florale Tarif :180euros
+IMAGE media/image5.jpeg
+TEXT  Plan de table plexiglas avec composition florale Tarif :120euros
+IMAGE media/image6.jpeg
+TEXT  Potelet doré (pack de 2 potelets avec corde blanc ou rouge) ( uniquement 2 potelets et une corde) Tarif :12euros
+IMAGE media/image7.jpeg
+
+
+### coin marié pret à EMPORTER.odt
+TEXT  COIN MARIE PRET A EMPORTER
+TEXT  Coin Elena ( disponible en rouge) Tarif :190euros
+IMAGE media/image1.jpg
+IMAGE media/image2.jpeg
+TEXT  Coin Miranda Tarif :190euros
+IMAGE media/image3.jpeg
+IMAGE media/image4.jpg
+TEXT  Coin Elise (disponible avec fleur blanche) tarif :310euros
+IMAGE media/image5.jpg
+TEXT  Coin beauty heart (disponible aussi en blanc) Tarif :320euros
+IMAGE media/image6.jpg
+IMAGE media/image7.jpg
+TEXT  Coin Lilas Tarif :360euros
+IMAGE media/image8.jpg
+IMAGE media/image9.jpg
+TEXT  Coin Tiffany Tarif :410euros
+IMAGE media/image10.jpeg
+IMAGE media/image11.jpeg
+TEXT  Coin Oriental Tarif :490euros
+IMAGE media/image12.jpeg
+TEXT  Coin Milana Tarif :490euros
+IMAGE media/image13.jpg
+IMAGE media/image14.jpeg
+TEXT  Mettre tout ce qui est entre parenthèse dans les références dans les détails de cette référence
+TEXT  Rajouter les tarifs de chaque référence
+TEXT  Rajouter les nouvelles photos
+TEXT  Enlever le rideau lumineux bleu roi
+TEXT  Prendre la photo du voilage blanc du site DDAY EVENT et le mettre dans la référence de rideau blanc 3mètres du nouveau site MY DDAY EVENT
+TEXT  Prendre la photo du rideau lumineux du site DDAY EVENT et le mettre dans la référence de rideau lumineux blanc 3mètres du site MY DDAY EVENT
+TEXT  Prendre la photo du socle transparent du site DDAY EVENT et le mettre dans la référence de socle transparent du nouveau site MY DDAY EVENT
+TEXT  Prendre la photo de la nappe blanche du site DDAY EVENT et le mettre dans la référence de nappe de table rond blanc
+TEXT  Rajouter les nouvelles références et photos
+TEXT  Mettre une photo d’intelligence artificielle de nappe de table rectangle blanc dans la référence de nappe de table rectangle blanc
+TEXT  Mettre une photo d’intelligence artificielle de Chemin de table gaze de coton dans la référence de Chemin de table gaze de coton
+TEXT  Mettre une photo d’intelligence artificielle de serviette en tissus blanc dans la référence de serviette en tissu blanc
+TEXT  Mettre une photo d’intelligence artificielle de serviette en tissu vert sauge dans la référence de serviette en tissu vert sauge
+TEXT  Mettre une photo d’intelligence artificielle de soliflore dans la référence de soliflore
+TEXT  Mettre une photo d’intelligence artificielle de soliflore avec plusieurs fleurs artificielles dans la référence de soliflore avec fleurs artificielles
+TEXT  Prendre la photo de housse de chaise du site DDAY EVENT et le mettre dans la référence Housse de chaise du nouveau site MY DDAY EVENT
+TEXT  Prendre la photo de nœud en voilage du site DDAY EVENT et le mettre dans la référence Nœud en voilage du nouveau site MY DDAY EVENT
+TEXT  Prendre la photo du décor floral de chaise du site DDAY EVENT et le mettre dans la référence Décor floral de chaise du nouveau site MY DDAY EVENT
+TEXT  Mettre une photo d’intelligence artificielle de moquette blanche dans la référence de moquette blanche
+TEXT  Mettre une photo d’intelligence artificielle de bougie conique blanche dans la référence de bougie conique blanche
